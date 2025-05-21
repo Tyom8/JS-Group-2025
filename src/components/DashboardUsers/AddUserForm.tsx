@@ -1,25 +1,19 @@
 import React from "react";
-import { useForm } from "react-hook-form";
-import styles from "../styles/DashboardUsers.module.css";
-import { IAddUser } from "../types";
+import styles from "../../styles/DashboardUsers.module.css";
+import { useAddUserForm } from "../../hooks/AddUserForm-hook";
 
 interface IUserFormProps {
-  onAddUser: (user: IAddUser) => void;
   setIsClosed: (value: boolean) => void;
 }
 
-const AddUserForm: React.FC<IUserFormProps> = ({ onAddUser, setIsClosed }) => {
+const AddUserForm: React.FC<IUserFormProps> = ({ setIsClosed }) => {
   const {
     register,
-    reset,
     handleSubmit,
     formState: { errors },
-  } = useForm<IAddUser>();
+    onSubmit
+  } = useAddUserForm();
 
-  const onSubmit = async (data: IAddUser) => {
-    onAddUser(data);
-    reset();
-  };
 
   return (
     <div className={styles.addUserContainer}>
@@ -103,7 +97,7 @@ const AddUserForm: React.FC<IUserFormProps> = ({ onAddUser, setIsClosed }) => {
                 message: "password is required",
               },
               pattern: {
-                value: /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8}$/,
+                value: /^(?=.*[a-zA-Z0-9!@#$%^&*])(?=.*[!@#$%^&*])[0-9]{8}$/,
                 message: "Password should contain only 8 characters",
               },
             })}
@@ -119,6 +113,10 @@ const AddUserForm: React.FC<IUserFormProps> = ({ onAddUser, setIsClosed }) => {
                 value: true,
                 message: "phone number is required",
               },
+              pattern: {
+                value: /^\+374 [0-9]{2} [0-9]{3}-[0-9]{3}$/,
+                message: "Invalid phone number"
+              }
             })}
           />
           {errors?.phoneNumber?.message && (
