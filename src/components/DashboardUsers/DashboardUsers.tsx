@@ -25,7 +25,10 @@ const DashBoardUsers: React.FC = () => {
         Add new user
       </button>
       {isAddUserFormShown && (
-        <AddUserForm setIsClosed={() => setIsAddUserFormShown(false)} />
+        <AddUserForm
+          sendData={handleAddUsers}
+          setIsClosed={() => setIsAddUserFormShown(false)}
+        />
       )}
       <div className={styles.users}>
         <div className={styles.user}>

@@ -5,7 +5,8 @@ export const useAddDashboardUsers = () => {
   const [isAddUserFormShown, setIsAddUserFormShown] = useState<boolean>(false);
   const [addedUsers, setAddedUsers] = useState<IAddUser[]>([]);
 
-  const handleAddUsers = () => {
+  const handleAddUsers = (newUser: IAddUser) => {
+    setAddedUsers((prev) => [...prev, newUser]);
     setIsAddUserFormShown(false);
   };
 

@@ -1,19 +1,25 @@
 import React from "react";
+import { useFormValidation } from "../../hooks/FormValidation-hook";
 import styles from "../../styles/DashboardUsers.module.css";
-import { useAddUserForm } from "../../hooks/AddUserForm-hook";
+import { IAddUser } from "../../types";
 
 interface IUserFormProps {
+  sendData: (user: IAddUser) => void;
   setIsClosed: (value: boolean) => void;
 }
 
-const AddUserForm: React.FC<IUserFormProps> = ({ setIsClosed }) => {
+const AddUserForm: React.FC<IUserFormProps> = ({ sendData, setIsClosed }) => {
   const {
     register,
     handleSubmit,
     formState: { errors },
-    onSubmit
-  } = useAddUserForm();
+    reset,
+  } = useFormValidation<IAddUser>();
 
+  const onSubmit = (data: IAddUser) => {
+    sendData(data);
+    reset();
+  };
 
   return (
     <div className={styles.addUserContainer}>
@@ -97,7 +103,8 @@ const AddUserForm: React.FC<IUserFormProps> = ({ setIsClosed }) => {
                 message: "password is required",
               },
               pattern: {
-                value: /^(?=.*[a-zA-Z0-9!@#$%^&*])(?=.*[!@#$%^&*])[0-9]{8}$/,
+                value:
+                  /^(?=.*[A-Za-z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8}$/,
                 message: "Password should contain only 8 characters",
               },
             })}
@@ -115,8 +122,8 @@ const AddUserForm: React.FC<IUserFormProps> = ({ setIsClosed }) => {
               },
               pattern: {
                 value: /^\+374 [0-9]{2} [0-9]{3}-[0-9]{3}$/,
-                message: "Invalid phone number"
-              }
+                message: "Invalid phone number",
+              },
             })}
           />
           {errors?.phoneNumber?.message && (

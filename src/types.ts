@@ -5,6 +5,6 @@ export interface IAddUser {
   email: string;
   password: string;
   phoneNumber: string;
-  gender: "male" | "female"
+  gender: "male" | "female";
   userImg?: string;
 }
