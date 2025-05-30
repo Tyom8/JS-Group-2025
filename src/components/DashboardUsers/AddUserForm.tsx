@@ -2,6 +2,7 @@ import React from "react";
 import { useFormValidation } from "../../hooks/FormValidation-hook";
 import styles from "../../styles/DashboardUsers.module.css";
 import { IAddUser } from "../../types";
+import closeIcon from "../../assets/icons/close.svg";
 
 interface IUserFormProps {
   sendData: (user: IAddUser) => void;
@@ -24,23 +25,7 @@ const AddUserForm: React.FC<IUserFormProps> = ({ sendData, setIsClosed }) => {
   return (
     <div className={styles.addUserContainer}>
       <div className={styles.content}>
-        <p onClick={() => setIsClosed(false)}>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            height="24px"
-            viewBox="0 -960 960 960"
-            width="24px"
-            fill="black"
-            style={{
-              position: "absolute",
-              top: "6px",
-              right: "8px",
-              cursor: "pointer",
-            }}
-          >
-            <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" />
-          </svg>
-        </p>
+        <img src={closeIcon} alt="close icon" onClick={() => setIsClosed(false)} className={styles.closeIconImg}/>
         <h2>Add User</h2>
         <form onSubmit={handleSubmit(onSubmit)} className={styles.addUserForm}>
           <input
