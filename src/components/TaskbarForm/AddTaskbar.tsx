@@ -1,6 +1,6 @@
 import React from "react";
-import { useAddTaskbar } from "../../hooks/AddTaskbar-hook";
 import styles from "../../styles/AddTaskbarForm.module.css";
+import { useAddTaskbar } from "./AddTaskbar-hook";
 import AddTaskbarForm from "./AddTaskbarForm";
 
 const AddTaskbar: React.FC = () => {

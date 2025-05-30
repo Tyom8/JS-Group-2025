@@ -1,5 +1,5 @@
 .usersContainer {
-  box-shadow: 0px 0px 10px #D3C4B8;
+  box-shadow: 0px 0px 10px #d3c4b8;
   max-width: 250px;
   height: 92vh;
   padding: 30px;
@@ -8,7 +8,7 @@
   justify-content: flex-start;
   align-items: flex-start;
   gap: 30px;
-  background-color: #fffaf6
+  background-color: #fffaf6;
 }
 
 .btn {
@@ -18,8 +18,8 @@
   font-weight: 600;
   cursor: pointer;
   font-size: 15px;
-  background-color: #FCE2CE;
-  color: #92613A;
+  background-color: #fce2ce;
+  color: #92613a;
   align-self: center;
 }
 
@@ -35,12 +35,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 6px;
-
+  gap: 10px;
 }
 
 .user img {
-  width: 60px;
+  width: 40px;
   border-radius: 50%;
 }
 
@@ -49,11 +48,10 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  line-height: 1.4;
 }
 
 .username {
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 600;
   color: #333;
   margin: 0;
@@ -65,25 +63,23 @@
   margin: 2px 0 0 0;
 }
 
-
 .addUserContainer {
   position: absolute;
   top: 50px;
   left: 40%;
-  box-shadow: 0px 0px 10px #D3C4B8;
+  box-shadow: 0px 0px 10px #d3c4b8;
   width: 400px;
   height: auto;
   padding: 30px;
   border-radius: 10px;
-  background-color: #fff4eab4;
+  background-color: #fff4ea;
   z-index: 1000;
 }
-
 
 .addUserBtn {
   align-self: flex-end;
   padding: 9px 20px;
-  background-color: #92613A;
+  background-color: #92613a;
   color: white;
   border: none;
   border-radius: 5px;
@@ -101,7 +97,7 @@
   width: 100%;
   height: 20px;
   border: none;
-  border-bottom: 1px solid #92613A;
+  border-bottom: 1px solid #92613a;
   outline: none;
   padding: 5px;
   background-color: transparent;
@@ -130,13 +126,13 @@
 }
 
 .error {
-  color: #D9534F;
+  color: #d9534f;
   margin-top: -20px;
   margin-bottom: -15px;
 }
 
 .genderError {
-  color: #D9534F;
+  color: #d9534f;
 }
 
 .deleteBtn {
@@ -145,8 +141,20 @@
 }
 
 .delete {
-  background: #D9534F;
-  padding: 3px 6px;
+  background: #d9534f;
+  padding: 4px 5px;
   border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.delete img {
+  width: 20px;
+}
+
+.closeIconImg {
+  position: absolute;
+  top: 10px;
+  right: 10px;
   cursor: pointer;
 }

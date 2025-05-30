@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { IAddTaskbarForm } from "../types";
+import { IAddTaskbarForm } from "../../types";
 
 export const useAddTaskbar = () => {
   const [addedTaskbars, setAddedTaskbars] = useState<IAddTaskbarForm[]>([]);
