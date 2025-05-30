@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { IAddUser } from "../types";
+import { IAddUser } from "../../types";
 
 export const useAddDashboardUsers = () => {
   const [isAddUserFormShown, setIsAddUserFormShown] = useState<boolean>(false);
