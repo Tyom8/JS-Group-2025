@@ -1,6 +1,6 @@
 import React from "react";
 import image from "../../assets/default-image.jpg";
-import { useUserProfileContent } from "../../hooks/ShowUserProfileContent-hook";
+import { useUserProfileContent } from "./ShowUserProfileContent-hook";
 import styles from "../../styles/Header.module.css";
 
 const Header: React.FC = () => {
