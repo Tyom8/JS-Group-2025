@@ -2,6 +2,7 @@ import React from "react";
 import { useFormValidation } from "../../hooks/FormValidation-hook";
 import styles from "../../styles/AddTaskbarForm.module.css";
 import { IAddTaskbarForm } from "../../types";
+import closeIcon from "../../assets/icons/close.svg";
 
 interface IAddTaskbarFormProps {
   sendData: (user: IAddTaskbarForm) => void;
@@ -27,16 +28,7 @@ const AddTaskbarForm: React.FC<IAddTaskbarFormProps> = ({
   return (
     <div className={styles.addTaskbarFormContainer}>
       <div className={styles.close} onClick={() => setIsClosed(false)}>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          height="24px"
-          viewBox="0 -960 960 960"
-          width="24px"
-          fill="black"
-          style={{ cursor: "pointer" }}
-        >
-          <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" />
-        </svg>
+       <img src={closeIcon} alt="close icon" />
       </div>
       <form className={styles.formContainer} onSubmit={handleSubmit(onSubmit)}>
         <div className={styles.deadline}>
