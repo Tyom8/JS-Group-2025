@@ -1,0 +1,118 @@
+.addTaskbarFormContainer {
+  width: 600px;
+  height: auto;
+  padding: 20px;
+  background-color: white;
+  box-shadow: 0px 0px 10px grey;
+  border-radius: 10px;
+  margin-top: 40px;
+}
+
+.close {
+  position: absolute;
+  top: 90px;
+  left: 620px;
+  cursor: pointer;
+}
+
+.formContainer {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.formContainer .deadline {
+  display: flex;
+  gap: 30px;
+}
+
+.title > input {
+  width: 70%;
+}
+
+.imageDescriptionCategoryContainer {
+  display: flex;
+  gap: 40px;
+}
+
+.image {
+  width: 200px;
+  height: 150px;
+  border: 1px solid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+}
+
+.descriptionAndCategory {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.addImgBtn {
+  font-size: 20px;
+  border: none;
+  padding: 2px 10px;
+  border-radius: 10px;
+  background-color: #e5cdba;
+  cursor: pointer;
+}
+
+.formContainer .descriptionAndCategory textarea {
+  height: 70px;
+}
+
+.formContainer input,
+.formContainer select {
+  height: 30px;
+}
+
+.formContainer input,
+.formContainer select,
+.formContainer textarea {
+  outline: none;
+  border: 1px solid;
+  border-radius: 5px;
+  padding-left: 6px;
+}
+
+.formContainer .addMembersContainer select {
+  width: 90%;
+}
+
+.formContainer .submitBtn {
+  align-self: flex-end;
+  padding: 10px 20px;
+  border: none;
+  margin-right: 20px;
+  font-weight: 600;
+  font-size: 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #bd926f;
+  color: white;
+}
+
+.addTaskbarBtn button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  background-color: #dcc4b2;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.error {
+  color: red;
+}
+
+.dateError {
+  margin-top: 5px;
+}
+
+.descriptionError, .categoryError {
+  margin-top: -10px;
+}

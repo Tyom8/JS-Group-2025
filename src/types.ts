@@ -8,3 +8,13 @@ export interface IAddUser {
   gender: "male" | "female";
   userImg?: string;
 }
+
+export interface IAddTaskbarForm {
+  id: number;
+  date: Date;
+  title: string;
+  image?: string;
+  description: string;
+  category: string;
+  member: string;
+}
