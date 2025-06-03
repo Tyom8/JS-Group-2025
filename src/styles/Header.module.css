@@ -45,41 +45,6 @@ header {
   height: 40px;
   border-radius: 50%;
 }
-/* 
-.showedProfile {
-  position: absolute;
-  margin-top: 20px;
-  width: 130px;
-  background-color: #fdfbfa;
-  box-shadow: 0px 0px 10px #d1cecd;
-  border-radius: 5px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-left: 10px;
-  cursor: pointer;
-}
-
-.showedProfile p {
-  margin-top: 0px;
-  margin-bottom: 10px;
-}
-
-.showedProfile p:first-child {
-  border-bottom: 1px solid rgb(214, 214, 214);
-  padding: 10px;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
-}
-
-.showedProfile p:last-child {
-    padding: 2px;
-}
-
-.showedProfile p:hover {
-  background-color: rgba(219, 219, 219, 0.64);
-} */
 
 .showedProfile {
   position: absolute;
