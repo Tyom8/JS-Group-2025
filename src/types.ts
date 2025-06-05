@@ -1,3 +1,4 @@
+// All the types of user form input fields
 export interface IAddUser {
   id: number;
   firstName: string;

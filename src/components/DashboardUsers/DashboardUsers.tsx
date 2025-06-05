@@ -6,6 +6,7 @@ import { useAddDashboardUsers } from "./AddDashboardUsers-hook";
 import AddUserForm from "./AddUserForm";
 
 const DashBoardUsers: React.FC = () => {
+  // all needed fields and functions from useAddDashboardUsers hook
   const {
     addedUsers,
     isAddUserFormShown,
@@ -32,18 +33,24 @@ const DashBoardUsers: React.FC = () => {
         />
       )}
       <div className={styles.users}>
-        <div className={styles.user}>
-          <img src={defaultImage} alt="user image" />
-          <div className={styles.info}>
-            <h4 className={styles.username}>firstName</h4>
-            <p className={styles.email}>email</p>
-          </div>
-          <div className={styles.deleteBtn}>
-            <button className={styles.delete}>
-              <img src={deleteIcon} alt="delete icon" />
-            </button>
-          </div>
-        </div>
+        {addedUsers.length === 0 ? (
+          <p>No users added</p>
+        ) : (
+          addedUsers.map((user) => (
+            <div className={styles.user} key={user.id}>
+              <img src={defaultImage} alt="user image" />
+              <div className={styles.info}>
+                <h4 className={styles.username}>{user.firstName}</h4>
+                <p className={styles.email}>{user.email}</p>
+              </div>
+              <div className={styles.deleteBtn}>
+                <button className={styles.delete} onClick={() => handleDeleteUsers(user.id)}>
+                  <img src={deleteIcon} alt="delete icon" />
+                </button>
+              </div>
+            </div>
+          ))
+        )}
       </div>
     </div>
   );
