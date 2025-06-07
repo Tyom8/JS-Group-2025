@@ -4,6 +4,7 @@ import { useUserProfileContent } from "./ShowUserProfileContent-hook";
 import styles from "../../styles/Header.module.css";
 
 const Header: React.FC = () => {
+  // all needed fields and functions from useUserProfileContent hook
   const { isProfileShown, toggle } = useUserProfileContent();
   return (
     <header>
