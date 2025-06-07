@@ -1,18 +1,20 @@
 import React from "react";
+import closeIcon from "../../assets/icons/close.svg";
 import { useFormValidation } from "../../hooks/FormValidation-hook";
 import styles from "../../styles/AddTaskbarForm.module.css";
 import { IAddTaskbarForm } from "../../types";
-import closeIcon from "../../assets/icons/close.svg";
 
+// Props for AddTaskbarForm component
 interface IAddTaskbarFormProps {
-  sendData: (user: IAddTaskbarForm) => void;
-  setIsClosed: (value: boolean) => void;
+  sendData: (user: IAddTaskbarForm) => void; // this will send the form data (that is add the taskbar)
+  setIsClosed: (value: boolean) => void;  // this will close the add taskbar form
 }
 
 const AddTaskbarForm: React.FC<IAddTaskbarFormProps> = ({
   sendData,
   setIsClosed,
 }) => {
+  // all needed fields and functions from useFormValidation hook
   const {
     register,
     formState: { errors },
@@ -20,6 +22,8 @@ const AddTaskbarForm: React.FC<IAddTaskbarFormProps> = ({
     reset,
   } = useFormValidation<IAddTaskbarForm>();
 
+  // function handles form submit
+  // which sends the data and resets all the inputs
   const onSubmit = (data: IAddTaskbarForm) => {
     sendData(data);
     reset();
@@ -28,7 +32,7 @@ const AddTaskbarForm: React.FC<IAddTaskbarFormProps> = ({
   return (
     <div className={styles.addTaskbarFormContainer}>
       <div className={styles.close} onClick={() => setIsClosed(false)}>
-       <img src={closeIcon} alt="close icon" />
+        <img src={closeIcon} alt="close icon" />
       </div>
       <form className={styles.formContainer} onSubmit={handleSubmit(onSubmit)}>
         <div className={styles.deadline}>
@@ -51,7 +55,9 @@ const AddTaskbarForm: React.FC<IAddTaskbarFormProps> = ({
             })}
           />
           {errors?.date?.message && (
-            <p className={` ${styles.error} ${styles.dateError}`}>{errors.date.message}</p>
+            <p className={`${styles.error} ${styles.dateError}`}>
+              {errors.date.message}
+            </p>
           )}
         </div>
         <div className={styles.title}>
@@ -89,7 +95,9 @@ const AddTaskbarForm: React.FC<IAddTaskbarFormProps> = ({
               })}
             ></textarea>
             {errors?.description?.message && (
-              <p className={`${styles.error} ${styles.descriptionError}`}>{errors.description.message}</p>
+              <p className={`${styles.error} ${styles.descriptionError}`}>
+                {errors.description.message}
+              </p>
             )}
             <select
               {...register("category", {
@@ -102,7 +110,9 @@ const AddTaskbarForm: React.FC<IAddTaskbarFormProps> = ({
               <option value="">Select Category</option>
             </select>
             {errors?.category?.message && (
-              <p className={`${styles.error} ${styles.categoryError}`}>{errors.category.message}</p>
+              <p className={`${styles.error} ${styles.categoryError}`}>
+                {errors.category.message}
+              </p>
             )}
           </div>
         </div>

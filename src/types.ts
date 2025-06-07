@@ -10,6 +10,7 @@ export interface IAddUser {
   userImg?: string;
 }
 
+// All the types of taskbar form input fields
 export interface IAddTaskbarForm {
   id: number;
   date: Date;

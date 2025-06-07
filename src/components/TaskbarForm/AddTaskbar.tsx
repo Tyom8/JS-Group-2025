@@ -4,6 +4,7 @@ import { useAddTaskbar } from "./AddTaskbar-hook";
 import AddTaskbarForm from "./AddTaskbarForm";
 
 const AddTaskbar: React.FC = () => {
+  // all needed fields and functions from useAddTaskbar hook
   const {
     addedTaskbars,
     isTaskbarFormShown,
@@ -21,7 +22,6 @@ const AddTaskbar: React.FC = () => {
         />
       )}
     </div>
-    // taskbars will be added here
   );
 };
 
