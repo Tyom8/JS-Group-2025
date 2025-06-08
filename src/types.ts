@@ -20,3 +20,12 @@ export interface IAddTaskbarForm {
   category: string;
   member: string;
 }
+
+// All the types of project adding input fields
+export interface IAddNewProject {
+  id: number;
+  name: string;
+  description: string;
+  startDate: string;
+  endDate: string;
+}
