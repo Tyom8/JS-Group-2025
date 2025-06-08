@@ -29,3 +29,10 @@ export interface IAddNewProject {
   startDate: string;
   endDate: string;
 }
+
+// All the types of login form input fields
+export interface ILoginForm {
+  email: string;
+  password: string;
+  resetEmail: string;
+}
