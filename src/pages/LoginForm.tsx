@@ -1,11 +1,11 @@
 import { useState } from "react";
-import appleIcon from "../../assets/apple.png";
-import facebookIcon from "../../assets/facebook.png";
-import googleIcon from "../../assets/google.png";
-import yungManeIcon from "../../assets/yungMan.png";
-import { useFormValidation } from "../../hooks/FormValidation-hook";
-import styles from "../../styles/LoginForm.module.css";
-import { ILoginForm } from "../../types";
+import appleIcon from "../assets/apple.png";
+import facebookIcon from "../assets/facebook.png";
+import googleIcon from "../assets/google.png";
+import yungManeIcon from "../assets/yungMan.png";
+import styles from "../styles/LoginForm.module.css";
+import { useFormValidation } from "../hooks/FormValidation-hook";
+import { ILoginForm } from "../types";
 
 function LoginForm() {
   const [resetMessage, setResetMessage] = useState<string>("");
@@ -21,6 +21,7 @@ function LoginForm() {
   const {
     register: resetRegister,
     reset: resetForm,
+    formState: {errors: resetErrors},
     handleSubmit: handleResetSubmit,
   } = useFormValidation<ILoginForm>();
 
@@ -136,8 +137,16 @@ function LoginForm() {
               <input
                 type="email"
                 placeholder="Enter your email"
-                {...resetRegister("resetEmail")}
+                {...resetRegister("resetEmail", {
+                  required: {
+                    value: true,
+                    message: "This field is required"
+                  }
+                })}
               />
+              {resetErrors?.resetEmail?.message && (
+                <span className={styles.errorMessage}>{resetErrors.resetEmail.message}</span>
+              )}
               <button type="submit">Send Reset Link</button>
               {resetMessage && (
                 <p className={styles.resetMessage}>{resetMessage}</p>
