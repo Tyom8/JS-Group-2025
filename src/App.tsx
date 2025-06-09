@@ -1,10 +1,6 @@
 import "./App.css";
-import LoginForm from "./components/LoginForm/LoginForm";
-import ProjectsList from "./components/ProjectList/ProjectsList";
-import DashBoardUsers from "./components/DashboardUsers/DashboardUsers";
-import AddTaskbar from "./components/TaskbarForm/AddTaskbar";
-import Header from "./components/Header/Header";
 import DashboardPage from "./pages/Dashboard";
+import LoginForm from "./pages/LoginForm";
 
 function App() {
   return (
@@ -13,8 +9,8 @@ function App() {
       {/* <AddTaskbar /> */}
       {/* <Header /> */}
       {/* <ProjectsList /> */}
-      {/* <LoginForm/> */}
-      <DashboardPage/>
+      <LoginForm />
+      {/* <DashboardPage /> */}
     </>
   );
 }
