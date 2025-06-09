@@ -4,6 +4,7 @@ import ProjectsList from "./components/ProjectList/ProjectsList";
 import DashBoardUsers from "./components/DashboardUsers/DashboardUsers";
 import AddTaskbar from "./components/TaskbarForm/AddTaskbar";
 import Header from "./components/Header/Header";
+import DashboardPage from "./pages/Dashboard";
 
 function App() {
   return (
@@ -12,7 +13,8 @@ function App() {
       {/* <AddTaskbar /> */}
       {/* <Header /> */}
       {/* <ProjectsList /> */}
-      <LoginForm/>
+      {/* <LoginForm/> */}
+      <DashboardPage/>
     </>
   );
 }
