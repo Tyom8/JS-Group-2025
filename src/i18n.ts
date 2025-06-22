@@ -18,3 +18,5 @@ i18n
     },
     lng: localStorage.getItem("language") || "en",
   });
+
+export default i18n;

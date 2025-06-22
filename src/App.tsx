@@ -1,4 +1,5 @@
 import "./App.css";
+import Header from "./components/Header/Header";
 import Taskbar from "./components/Taskbar/Taskbar";
 import AddTaskbar from "./pages/AddTaskbar";
 import DashboardPage from "./pages/Dashboard";
@@ -9,12 +10,12 @@ function App() {
     <>
       {/* <DashBoardUsers /> */}
       {/* <AddTaskbar /> */}
-      {/* <Header /> */}
+      <Header />
       {/* <ProjectsList /> */}
-      {/* <LoginForm /> */}
+      <LoginForm />
       {/* <DashboardPage /> */}
       {/* <Taskbar /> */}
-      <AddTaskbar />
+      {/* <AddTaskbar /> */}
     </>
   );
 }

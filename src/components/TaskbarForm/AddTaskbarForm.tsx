@@ -3,6 +3,7 @@ import closeIcon from "../../assets/icons/close.svg";
 import { useFormValidation } from "../../hooks/FormValidation-hook";
 import styles from "../../styles/AddTaskbarForm.module.css";
 import { IAddTaskbarForm } from "../../types";
+import { useTranslation } from "react-i18next";
 
 // Props for AddTaskbarForm component
 interface IAddTaskbarFormProps {
@@ -21,6 +22,8 @@ const AddTaskbarForm: React.FC<IAddTaskbarFormProps> = ({
     handleSubmit,
     reset,
   } = useFormValidation<IAddTaskbarForm>();
+  
+  const { t } = useTranslation();
 
   // function handles form submit
   // which sends the data and resets all the inputs
@@ -28,6 +31,7 @@ const AddTaskbarForm: React.FC<IAddTaskbarFormProps> = ({
     sendData(data);
     reset();
   };
+
 
   return (
     <div className={styles.modal}>
@@ -67,7 +71,7 @@ const AddTaskbarForm: React.FC<IAddTaskbarFormProps> = ({
           <div className={styles.title}>
             <input
               type="text"
-              placeholder="Add Title"
+              placeholder={t("taskbarPage.formContent.titlePlaceholder")}
               {...register("title", {
                 required: {
                   value: true,
@@ -83,7 +87,7 @@ const AddTaskbarForm: React.FC<IAddTaskbarFormProps> = ({
             <div className={styles.image}></div>
             <div className={styles.descriptionAndCategory}>
               <textarea
-                placeholder="Type Description"
+                placeholder={t("taskbarPage.formContent.descriptionPlaceholder")}
                 {...register("description", {
                   required: {
                     value: true,
@@ -104,7 +108,7 @@ const AddTaskbarForm: React.FC<IAddTaskbarFormProps> = ({
                   // },
                 })}
               >
-                <option value="">Select Category</option>
+                <option value="">{t("taskbarPage.formContent.selectCategoryPlaceholder")}</option>
               </select>
               {/* {errors?.category?.message && (
                 <p className={`${styles.error} ${styles.categoryError}`}>
@@ -122,14 +126,14 @@ const AddTaskbarForm: React.FC<IAddTaskbarFormProps> = ({
                 // },
               })}
             >
-              <option value="">Add Members</option>
+              <option value="">{t("taskbarPage.formContent.selectMembersPlaceholder")}</option>
             </select>
             {/* {errors?.member?.message && (
               <p className={styles.error}>{errors.member.message}</p>
             )} */}
           </div>
           <button type="submit" className={styles.submitButton}>
-            Add
+            {t("taskbarPage.formContent.addBtn")}
           </button>
         </form>
       </div>
