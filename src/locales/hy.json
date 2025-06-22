@@ -1,0 +1,53 @@
+{
+  "translation": {
+    "loginPage": {
+      "title": "Բարի գալուստ",
+      "loginBtnText": "Մուտք գործել",
+      "passwordPlaceholder": "Մուտքագրեք ձեր գաղտնաբառը",
+      "forgotPassword": "Մոռացել եք գաղտնաբառը",
+      "or": "կամ"
+    },
+    "header": {
+      "changePassword": "Փոխել գաղտնաբառը",
+      "logout": "Դուրս գալ"
+    },
+    "dashboardPage": {
+      "dashboardUsers": {
+        "addUserBtn": "Ավելացնել նոր օգտատեր",
+        "noUsersText": "Օգտատերերը ավելացված չեն",
+        "formContent": {
+          "title": "Ավելացնել օգտատեր",
+          "firstNamePlaceholder": "Մուտքագրեք ձեր անունը",
+          "lastNamePlaceholder": "Մուտքագրեք ձեր ազգանունը",
+          "emailPlaceholder": "Մուտքագրեք ձեր էլ. փոստը",
+          "passwordPlaceholder": "Մուտքագրեք ձեր գաղտնաբառը",
+          "phoneNumberPlaceholder": "Մուտքագրեք ձեր հեռախոսահամարը",
+          "gender": {
+            "male": "Ա",
+            "female": "Ի"
+          },
+          "button": "Ավելացնել"
+        }
+      },
+      "project": {
+        "addProjectBtn": "Նոր Պրոյեկտ",
+        "formContent": {
+          "projectNamePlaceholder": "Պրոյեկտի անունը",
+          "projectDescriptionPlaceholder": "Պրոյեկտի նկարագրությունը",
+          "saveProjectBtn": "Պահպանել"
+        }
+      }
+    },
+    "taskbarPage": {
+      "newTaskbarBtn": "Նոր առաջադրանք",
+      "formContent": {
+        "titlePlaceholder": "Ավելացրեք վերնագիր",
+        "descriptionPlaceholder": "Ավելացրեք նկարագրություն",
+        "selectCategoryPlaceholder": "Ընտրեք կատեգորիա",
+        "selectMembersPlaceholder": "Ընտրեք անդամներին",
+        "addBtn": "Ավելացնել"
+      },
+      "noTaskbarsText": "Առաջադրանքներն ավելացված չեն"
+    }
+  }
+}

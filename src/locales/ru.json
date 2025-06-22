@@ -1,0 +1,53 @@
+{
+  "translation": {
+    "loginPage": {
+      "title": "Добро пожаловать",
+      "loginBtnText": "Вход",
+      "passwordPlaceholder": "Введите свой пароль",
+      "forgotPassword": "Забыли пароль",
+      "or": "или"
+    },
+    "header": {
+      "changePassword": "Менять пароль",
+      "logout": "Выйти"
+    },
+    "dashboardPage": {
+      "dashboardUsers": {
+        "addUserBtn": "Добавить нового пользователя",
+        "noUsersText": "Пользователи не добавлены",
+        "formContent": {
+          "title": "Добавить Пользователя",
+          "firstNamePlaceholder": "Введите своё имя",
+          "lastNamePlaceholder": "Введите свою фамилию",
+          "emailPlaceholder": "Введите свой эл. адрес",
+          "passwordPlaceholder": "Введите свой пароль",
+          "phoneNumberPlaceholder": "Введите свой номер",
+          "gender": {
+            "male": "М",
+            "female": "Ж"
+          },
+          "button": "Добавить"
+        }
+      },
+      "project": {
+        "addProjectBtn": "Новый Проект",
+        "formContent": {
+          "projectNamePlaceholder": "Имя проекта",
+          "projectDescriptionPlaceholder": "Описание проекта",
+          "saveProjectBtn": "Сохранить"
+        }
+      }
+    },
+    "taskbarPage": {
+      "newTaskbarBtn": "Новый панель задач",
+      "formContent": {
+        "titlePlaceholder": "Добавтье заголовок",
+        "descriptionPlaceholder": "Добавтье описание",
+        "selectCategoryPlaceholder": "Выберите категорию",
+        "selectMembersPlaceholder": "Выберите участников",
+        "addBtn": "Добавить"
+      },
+      "noTaskbarsText": "Панельи задач не добавлены"
+    }
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "translation": {
+    "loginPage": {
+      "title": "Welcome Back",
+      "loginBtnText": "Login",
+      "passwordPlaceholder": "Enter your password",
+      "forgotPassword": "Forgot Password",
+      "or": "or"
+    },
+    "header": {
+      "changePassword": "Change Password",
+      "logout": "Logout"
+    },
+    "dashboardPage": {
+      "dashboardUsers": {
+        "addUserBtn": "Add new User",
+        "noUsersText": "No users added",
+        "formContent": {
+          "title": "Add User",
+          "firstNamePlaceholder": "Enter your first name",
+          "lastNamePlaceholder": "Enter your last name",
+          "emailPlaceholder": "Enter your email",
+          "passwordPlaceholder": "Enter your password",
+          "phoneNumberPlaceholder": "Enter your phone number",
+          "gender": {
+            "male": "Male",
+            "female": "Female"
+          },
+          "button": "Add User"
+        }
+      },
+      "project": {
+        "addProjectBtn": "New Project",
+        "formContent": {
+          "projectNamePlaceholder": "Project name",
+          "projectDescriptionPlaceholder": "Project description",
+          "saveProjectBtn": "Save Project"
+        }
+      }
+    },
+    "taskbarPage": {
+      "newTaskbarBtn": "New Taskbar",
+      "formContent": {
+        "titlePlaceholder": "Add Title",
+        "descriptionPlaceholder": "Type description",
+        "selectCategoryPlaceholder": "Select Category",
+        "selectMembersPlaceholder": "Select Members",
+        "addBtn": "Add"
+      },
+      "noTaskbarsText": "No taskbars added"
+    }
+  }
+}
