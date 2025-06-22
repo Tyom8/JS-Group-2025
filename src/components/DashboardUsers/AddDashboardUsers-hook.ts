@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import { IAddUser } from "../../types";
 
 export const useAddDashboardUsers = () => {
@@ -8,20 +8,19 @@ export const useAddDashboardUsers = () => {
   const [addedUsers, setAddedUsers] = useState<IAddUser[]>([]);
 
   // function that handles user adding
-  const handleAddUsers = (data: IAddUser) => {
+  const handleAddUsers = useCallback((data: IAddUser) => {
     const newUser = {
       ...data,
       id: Date.now(),
     };
     setAddedUsers((prev) => [...prev, newUser]);
     setIsAddUserFormShown(false);
-  };
+  }, []);
 
   // function that handles user deleting
-  const handleDeleteUsers = (id: number) => {
-    const foundUser = addedUsers.filter((user) => user.id !== id);
-    setAddedUsers(foundUser);
-  };
+  const handleDeleteUsers = useCallback((id: number) => {
+   setAddedUsers((prev) => prev.filter((user) => user.id !== id));
+  }, []);
 
   return {
     addedUsers,

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import { IAddTaskbarForm } from "../../types";
 
 export const useAddTaskbar = () => {
@@ -8,14 +8,14 @@ export const useAddTaskbar = () => {
   const [isTaskbarFormShown, setIsTaskbarFormShown] = useState<boolean>(false);
 
   // function that handles taskbar adding
-  const handleAddTaskbar = (taskbar: IAddTaskbarForm) => {
+  const handleAddTaskbar = useCallback((taskbar: IAddTaskbarForm) => {
     const newTaskbar = {
       ...taskbar,
       id: Date.now()
     };
     setAddedTaskbars((prev) => [...prev, newTaskbar]);
     setIsTaskbarFormShown(false);
-  };
+  }, []);
 
   return {
     addedTaskbars,
