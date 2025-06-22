@@ -1,4 +1,5 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import closeIcon from "../../assets/icons/close.svg";
 import { useFormValidation } from "../../hooks/FormValidation-hook";
 import styles from "../../styles/DashboardUsers.module.css";
@@ -19,6 +20,8 @@ const AddUserForm: React.FC<IUserFormProps> = ({ sendData, setIsClosed }) => {
     reset,
   } = useFormValidation<IAddUser>();
 
+  const { t } = useTranslation();
+
   // function handles form submit
   // which sends the data and resets all the inputs
   const onSubmit = (data: IAddUser) => {
@@ -36,14 +39,14 @@ const AddUserForm: React.FC<IUserFormProps> = ({ sendData, setIsClosed }) => {
             onClick={() => setIsClosed(false)}
             className={styles.closeIconImg}
           />
-          <h2>Add User</h2>
+          <h2>{t("dashboardPage.dashboardUsers.formContent.title")}</h2>
           <form
             onSubmit={handleSubmit(onSubmit)}
             className={styles.addUserForm}
           >
             <input
               type="text"
-              placeholder="Enter your first name"
+              placeholder={t("dashboardPage.dashboardUsers.formContent.firstNamePlaceholder")}
               {...register("firstName", {
                 required: {
                   value: true,
@@ -60,7 +63,7 @@ const AddUserForm: React.FC<IUserFormProps> = ({ sendData, setIsClosed }) => {
             )}
             <input
               type="text"
-              placeholder="Enter your last name"
+              placeholder={t("dashboardPage.dashboardUsers.formContent.lastNamePlaceholder")}
               {...register("lastName", {
                 required: {
                   value: true,
@@ -77,7 +80,7 @@ const AddUserForm: React.FC<IUserFormProps> = ({ sendData, setIsClosed }) => {
             )}
             <input
               type="email"
-              placeholder="Enter your email"
+              placeholder={t("dashboardPage.dashboardUsers.formContent.emailPlaceholder")}
               {...register("email", {
                 required: {
                   value: true,
@@ -94,7 +97,7 @@ const AddUserForm: React.FC<IUserFormProps> = ({ sendData, setIsClosed }) => {
             )}
             <input
               type="password"
-              placeholder="Enter your password"
+              placeholder={t("dashboardPage.dashboardUsers.formContent.passwordPlaceholder")}
               {...register("password", {
                 required: {
                   value: true,
@@ -113,7 +116,7 @@ const AddUserForm: React.FC<IUserFormProps> = ({ sendData, setIsClosed }) => {
             )}
             <input
               type="tel"
-              placeholder="Enter your phone number"
+              placeholder={t("dashboardPage.dashboardUsers.formContent.phoneNumberPlaceholder")}
               {...register("phoneNumber", {
                 required: {
                   value: true,
@@ -130,7 +133,7 @@ const AddUserForm: React.FC<IUserFormProps> = ({ sendData, setIsClosed }) => {
             )}
             <div className={styles.checkboxContainer}>
               <label htmlFor="male">
-                <span>Male</span>
+                <span>{t("dashboardPage.dashboardUsers.formContent.gender.male")}</span>
                 <input
                   type="radio"
                   value="male"
@@ -143,7 +146,7 @@ const AddUserForm: React.FC<IUserFormProps> = ({ sendData, setIsClosed }) => {
                 />
               </label>
               <label htmlFor="female">
-                <span>Female</span>
+                <span>{t("dashboardPage.dashboardUsers.formContent.gender.female")}</span>
                 <input
                   type="radio"
                   value="female"
@@ -163,7 +166,7 @@ const AddUserForm: React.FC<IUserFormProps> = ({ sendData, setIsClosed }) => {
               <input type="file" {...register("userImg")} />
             </div>
             <button type="submit" className={styles.addUserBtn}>
-              Add User
+              {t("dashboardPage.dashboardUsers.formContent.button")}
             </button>
           </form>
         </div>

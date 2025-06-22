@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { useFormValidation } from "../../hooks/FormValidation-hook";
 import styles from "../../styles/ProjectsList.module.css";
 import { IAddNewProject } from "../../types";
@@ -13,6 +14,8 @@ function ProjectsList() {
 
   const { projects, showModal, setShowModal, handleAddProject } = useAddNewProject();
 
+  const { t } = useTranslation();
+
   const onSubmit = (data: IAddNewProject) => {
     handleAddProject(data);
     reset();
@@ -25,7 +28,7 @@ function ProjectsList() {
           className={styles.newProjectBtn}
           onClick={() => setShowModal(true)}
         >
-          + New Project
+          {t("dashboardPage.project.addProjectBtn")}
         </button>
 
         <div className={styles.projectList}>
@@ -60,7 +63,7 @@ function ProjectsList() {
                 <form onSubmit={handleSubmit(onSubmit)}>
                   <input
                     type="text"
-                    placeholder="Project name"
+                    placeholder={t("dashboardPage.project.formContent.projectNamePlaceholder")}
                     {...register("name", {
                       required: {
                         value: true,
@@ -72,7 +75,7 @@ function ProjectsList() {
                     <p className={styles.error}>{errors.name.message}</p>
                   )}
                   <textarea
-                    placeholder="Project description"
+                    placeholder={t("dashboardPage.project.formContent.projectDescriptionPlaceholder")}
                     {...register("description", {
                       required: {
                         value: true,
@@ -83,7 +86,7 @@ function ProjectsList() {
                   {errors?.description?.message && (
                     <p className={styles.error}>{errors.description.message}</p>
                   )}
-                  <button className={styles.submitBtn}>Save Project</button>
+                  <button className={styles.submitBtn}>{t("dashboardPage.project.formContent.saveProjectBtn")}</button>
                 </form>
               </div>
             </div>
