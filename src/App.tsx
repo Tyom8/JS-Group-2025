@@ -12,7 +12,7 @@ function App() {
       {/* <AddTaskbar /> */}
       <Header />
       {/* <ProjectsList /> */}
-      <LoginForm />
+      {/* <LoginForm /> */}
       {/* <DashboardPage /> */}
       {/* <Taskbar /> */}
       {/* <AddTaskbar /> */}
