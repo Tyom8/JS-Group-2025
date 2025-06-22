@@ -1,5 +1,6 @@
 import "./App.css";
 import Taskbar from "./components/Taskbar/Taskbar";
+import AddTaskbar from "./pages/AddTaskbar";
 import DashboardPage from "./pages/Dashboard";
 import LoginForm from "./pages/LoginForm";
 
@@ -12,7 +13,8 @@ function App() {
       {/* <ProjectsList /> */}
       {/* <LoginForm /> */}
       {/* <DashboardPage /> */}
-      <Taskbar />
+      {/* <Taskbar /> */}
+      <AddTaskbar />
     </>
   );
 }

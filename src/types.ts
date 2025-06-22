@@ -13,12 +13,13 @@ export interface IAddUser {
 // All the types of taskbar form input fields
 export interface IAddTaskbarForm {
   id: number;
-  date: Date;
+  date: string;
   title: string;
   image?: string;
   description: string;
   category: string;
   member: string;
+  status: string;
 }
 
 // All the types of project adding input fields
