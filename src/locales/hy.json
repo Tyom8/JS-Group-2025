@@ -26,6 +26,21 @@
             "male": "Ա",
             "female": "Ի"
           },
+          "requiredFields": {
+            "firstNameRequired": "Անունը պարտադիր է լրացման",
+            "lastNameRequired": "Ազգանունը պարտադիր է լրացման",
+            "emailRequired": "Էլ. փոստը պարտադիր է լրացման",
+            "passwordRequired": "Գաղտնաբառը պարտադիր է լրացման",
+            "phoneNumberRequired": "Հեռախոսահամարը պարտադիր է լրացման",
+            "genderRequired": "Սեռը պարտադիր է ընտրել"
+          },
+          "patterns": {
+            "firstNamePattern": "Սխալ անվան ֆորմատ",
+            "lastNamePattern": "Սխալ ազգանվան ֆորմատ",
+            "emailPattern": "Սխալ էլ. փոստի ֆորմատ",
+            "passwordPattern": "Գաղտնաբառը պետք է պարունակի 8 նիշ: Առնվազն մեկ մեծատառ + առնվազն մեկ փոքրատառ + առնվազն մեկ թիվ + առնվազն մեկ հատուկ նիշ (8 վավեր նիշ)",
+            "phoneNumberPatter": "Սխալ հեռախոսահամարի ֆորմատ"
+          },
           "button": "Ավելացնել"
         }
       },
