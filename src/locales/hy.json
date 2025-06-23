@@ -1,12 +1,5 @@
 {
   "translation": {
-    "loginPage": {
-      "title": "Բարի գալուստ",
-      "loginBtnText": "Մուտք գործել",
-      "passwordPlaceholder": "Մուտքագրեք ձեր գաղտնաբառը",
-      "forgotPassword": "Մոռացել եք գաղտնաբառը",
-      "or": "կամ"
-    },
     "header": {
       "changePassword": "Փոխել գաղտնաբառը",
       "logout": "Դուրս գալ"
