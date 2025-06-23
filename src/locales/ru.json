@@ -1,12 +1,5 @@
 {
   "translation": {
-    "loginPage": {
-      "title": "Добро пожаловать",
-      "loginBtnText": "Вход",
-      "passwordPlaceholder": "Введите свой пароль",
-      "forgotPassword": "Забыли пароль",
-      "or": "или"
-    },
     "header": {
       "changePassword": "Менять пароль",
       "logout": "Выйти"
