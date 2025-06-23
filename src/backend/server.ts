@@ -7,8 +7,11 @@ import {
   IAddUser,
   ILoginForm,
 } from "../types";
+import dotenv from "dotenv";
 
-const PORT = 3000;
+dotenv.config();
+
+const PORT = process.env.PORT;
 const USERS_FILE_PATH = path.join(__dirname, "../data/users.json");
 const PROJECTS_FILE_PATH = path.join(__dirname, "../data/projects.json");
 const TASKBARS_FILE_PATH = path.join(__dirname, "../data/taskbars.json");
@@ -19,7 +22,7 @@ const AUTHORIZED_USERS_FILE_PATH = path.join(
 
 const server = http.createServer((req, res) => {
   switch (req.url) {
-    case "/authorized-users":
+    case process.env.AUTH_USERS:
       if (req.method === "POST") {
         let authUsersBody = "";
 
@@ -137,7 +140,7 @@ const server = http.createServer((req, res) => {
         });
       }
       break;
-    case "/users":
+    case process.env.USERS:
       if (req.method === "POST") {
         let usersBody = "";
         req.on("data", (chunk) => {
@@ -205,7 +208,7 @@ const server = http.createServer((req, res) => {
         }
       }
       break;
-    case "/projects":
+    case process.env.PROJECTS:
       if (req.method === "POST") {
         let projectsBody = "";
 
@@ -322,7 +325,7 @@ const server = http.createServer((req, res) => {
         });
       }
       break;
-    case "/taskbars":
+    case process.env.TASKBARS:
       if (req.method === "POST") {
         let taskbarBody = "";
 
