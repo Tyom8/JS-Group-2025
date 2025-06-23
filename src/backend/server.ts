@@ -32,6 +32,8 @@ const server = http.createServer((req, res) => {
             const AUTH_USERS_DATA = JSON.parse(authUsersBody);
 
             const LOGIN = {
+              // That is if we did not entered id manially it will generate the random one
+              // In that case AUTH_USERS_DATA.id will be undefined / null
               id: AUTH_USERS_DATA.id ?? Date.now(),
               email: AUTH_USERS_DATA.email,
               password: AUTH_USERS_DATA.password,
@@ -149,7 +151,7 @@ const server = http.createServer((req, res) => {
             const USERS_DATA = JSON.parse(usersBody);
 
             const ADD_USER = {
-              id: USERS_DATA.id,
+              id: USERS_DATA.id ?? Date.now(),
               firstName: USERS_DATA.firstName,
               lastName: USERS_DATA.lastName,
               email: USERS_DATA.email,
@@ -218,7 +220,7 @@ const server = http.createServer((req, res) => {
             const PROJECTS_DATA = JSON.parse(projectsBody);
 
             const ADD_PROJECT = {
-              id: PROJECTS_DATA.id,
+              id: PROJECTS_DATA.id || Date.now(),
               name: PROJECTS_DATA.name,
               description: PROJECTS_DATA.description,
               startDate: PROJECTS_DATA.startDate,
@@ -335,7 +337,7 @@ const server = http.createServer((req, res) => {
             const TASKBAR_DATA = JSON.parse(taskbarBody);
 
             const ADD_TASKBAR = {
-              id: TASKBAR_DATA.id,
+              id: TASKBAR_DATA.id ?? Date.now(),
               date: TASKBAR_DATA.date,
               title: TASKBAR_DATA.title,
               image: TASKBAR_DATA.image || "",
