@@ -30,6 +30,7 @@ header {
   background-color: #e5d6caad;
   border: none;
   border-radius: 5px;
+  cursor: pointer;
 }
 
 .userInfo {
@@ -60,6 +61,7 @@ header {
   margin-left: 10px;
   cursor: pointer;
   z-index: 10;
+  font-size: 15px;
 }
 .showedProfile p {
   margin: 0;
@@ -81,4 +83,8 @@ header {
 
 .showedProfile p:hover {
   background-color: rgba(218, 218, 218, 0.346);
+}
+
+.hyLangProfileText {
+  font-size: 13px;
 }

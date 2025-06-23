@@ -34,7 +34,7 @@ const Header: React.FC = () => {
             <p>First name</p>
           </div>
           {isProfileShown && (
-            <div className={styles.showedProfile}>
+            <div className={`${styles.showedProfile} ${language === "hy" ? styles.hyLangProfileText : ""}`}>
               <p>{t("header.changePassword")}</p>
               <p>{t("header.logout")}</p>
             </div>
