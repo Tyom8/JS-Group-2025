@@ -12,13 +12,10 @@ import dotenv from "dotenv";
 dotenv.config();
 
 const PORT = process.env.PORT;
-const USERS_FILE_PATH = path.join(__dirname, "../data/users.json");
-const PROJECTS_FILE_PATH = path.join(__dirname, "../data/projects.json");
-const TASKBARS_FILE_PATH = path.join(__dirname, "../data/taskbars.json");
-const AUTHORIZED_USERS_FILE_PATH = path.join(
-  __dirname,
-  "../data/authorizedUsers.json"
-);
+const USERS_FILE_PATH = path.join(__dirname, process.env.PATH_TO_USERS_DATA || "");
+const PROJECTS_FILE_PATH = path.join(__dirname, process.env.PATH_TO_PROJECTS_DATA || "");
+const TASKBARS_FILE_PATH = path.join(__dirname, process.env.PATH_TO_TASKBARS_DATA || "");
+const AUTHORIZED_USERS_FILE_PATH = path.join(__dirname, process.env.PATH_TO_AUTH_USERS_DATA || "");
 
 const server = http.createServer((req, res) => {
   switch (req.url) {
