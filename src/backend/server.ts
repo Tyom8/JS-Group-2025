@@ -46,9 +46,7 @@ const server = http.createServer((req, res) => {
 
             const isDuplicated = existingSignedInData.find(
               (user: ILoginForm) =>
-                user.email === LOGIN.email ||
-                user.password === LOGIN.password ||
-                user.resetEmail === LOGIN.resetEmail
+                user.email === LOGIN.email             
             );
 
             if (isDuplicated) {
