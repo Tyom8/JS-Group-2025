@@ -33,6 +33,7 @@ export interface IAddNewProject {
 
 // All the types of login form input fields
 export interface ILoginForm {
+  id: number;
   email: string;
   password: string;
   resetEmail: string;
