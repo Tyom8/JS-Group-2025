@@ -264,7 +264,7 @@ const server = http.createServer((req, res) => {
           res.writeHead(200, { "Content-Type": "application/json" });
           res.end(GET_PROJECTS_DATA);
         } catch (error) {
-          res.writeHead(500, { "Content-Type": "application.json" });
+          res.writeHead(500, { "Content-Type": "application/json" });
           res.end({ errorMessage: "Failed to get projects" });
         }
       } else if (req.method === "PUT") {
@@ -419,7 +419,7 @@ const server = http.createServer((req, res) => {
 
             if (taskbarIndex === -1) {
               res.writeHead(404, { "Content-Type": "application/json" });
-              res.end(JSON.stringify({ errorMessage: "Taskbar not found" }));
+              return res.end(JSON.stringify({ errorMessage: "Taskbar not found" }));
             }
 
             isExist[taskbarIndex] = {
