@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import { IAddNewProject } from "../../types";
 
 export const useAddNewProject = () => {
@@ -8,7 +8,7 @@ export const useAddNewProject = () => {
   const [showModal, setShowModal] = useState<boolean>(false);
 
   // function that handles project adding
-  const handleAddProject = (data: IAddNewProject) => {
+  const handleAddProject = useCallback((data: IAddNewProject) => {
     const now = new Date();
     const formattedDate = now.toISOString().split("T")[0];
 
@@ -19,9 +19,9 @@ export const useAddNewProject = () => {
       endDate: formattedDate,
     };
 
-    setProjects([...projects, newProject]);
+    setProjects((prev) => [...prev, newProject]);
     setShowModal(false);
-  };
+  }, []);
 
   return {
     projects,
