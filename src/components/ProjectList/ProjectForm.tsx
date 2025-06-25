@@ -15,8 +15,8 @@ interface IProjectListProps {
     endDate: string
   ) => void;
   isEditMode?: boolean;
-  editById: number | null;
-  projects: IAddNewProject[];
+  editById?: number | null;
+  projects?: IAddNewProject[];
 }
 
 const ProjectForm: React.FC<IProjectListProps> = ({
@@ -53,7 +53,7 @@ const ProjectForm: React.FC<IProjectListProps> = ({
       const projectToEdit = projects.find((proj) => proj.id === editById);
       if (projectToEdit) {
         handleEditProject(
-          editById,
+          editById!, // means that it's not null here
           data.name,
           data.description,
           projectToEdit.startDate,
@@ -78,6 +78,7 @@ const ProjectForm: React.FC<IProjectListProps> = ({
           <div className={styles.modalLeftImg} />
           <div className={styles.modalForm}>
             <form onSubmit={handleSubmit(onSubmit)}>
+             
               <input
                 type="text"
                 placeholder={t(
@@ -107,6 +108,20 @@ const ProjectForm: React.FC<IProjectListProps> = ({
               {errors?.description?.message && (
                 <p className={styles.error}>{errors.description.message}</p>
               )}
+               <div className={styles.dates}>
+                <input type="date" {...register("startDate", {
+                  required: true
+                })} />
+                <input type="date" {...register("endDate", {
+                  required: {
+                    value: true,
+                    message: "Date is required"
+                  }
+                })} />
+                {errors?.endDate?.message && (
+                  <p className={styles.error}>{errors.endDate.message}</p>
+                )}
+              </div>
               <button className={styles.submitBtn}>
                 {t("dashboardPage.project.formContent.saveProjectBtn")}
               </button>
