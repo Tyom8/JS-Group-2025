@@ -1,25 +1,13 @@
 import { useTranslation } from "react-i18next";
-import { useFormValidation } from "../../hooks/FormValidation-hook";
 import styles from "../../styles/ProjectsList.module.css";
-import { IAddNewProject } from "../../types";
+import ProjectForm from "./ProjectForm";
 import { useAddNewProject } from "./ProjectList-hook";
 
 function ProjectsList() {
-  const {
-    register,
-    formState: { errors },
-    reset,
-    handleSubmit,
-  } = useFormValidation<IAddNewProject>();
-
-  const { projects, showModal, setShowModal, handleAddProject } = useAddNewProject();
+  const { projects, showModal, setShowModal, handleAddProject, editById, handleEditProject, isEditMode, setEditById , setIsEditMode } =
+    useAddNewProject();
 
   const { t } = useTranslation();
-
-  const onSubmit = (data: IAddNewProject) => {
-    handleAddProject(data);
-    reset();
-  };
 
   return (
     <div className={styles.dashboard}>
@@ -33,10 +21,17 @@ function ProjectsList() {
 
         <div className={styles.projectList}>
           {projects.map((project) => (
-            <div key={project.id} className="project-card">
+            <div key={project.id} className={styles.projectCard}>
               <div className={styles.projectImgPlaceholder} />
               <div className={styles.projectInfo}>
-                <h4>{project.name}</h4>
+                <div className={styles.edit} onClick={() => {
+                  setIsEditMode(true);
+                  setEditById(project.id);
+                  setShowModal(true);
+                }}>
+                  <h4>{project.name}</h4>
+                  <button className={styles.editBtn}>edit</button>
+                </div>
                 <p>{project.description}</p>
                 <div className={styles.dates}>
                   <span>{project.startDate}</span>
@@ -49,49 +44,14 @@ function ProjectsList() {
       </div>
 
       {showModal && (
-        <div className={styles.modalOverlay}>
-          <div className={styles.modal}>
-            <button
-              className={styles.closeBtn}
-              onClick={() => setShowModal(false)}
-            >
-              ×
-            </button>
-            <div className={styles.modalBody}>
-              <div className={styles.modalLeftImg} />
-              <div className={styles.modalForm}>
-                <form onSubmit={handleSubmit(onSubmit)}>
-                  <input
-                    type="text"
-                    placeholder={t("dashboardPage.project.formContent.projectNamePlaceholder")}
-                    {...register("name", {
-                      required: {
-                        value: true,
-                        message: "Project name is required",
-                      },
-                    })}
-                  />
-                  {errors?.name?.message && (
-                    <p className={styles.error}>{errors.name.message}</p>
-                  )}
-                  <textarea
-                    placeholder={t("dashboardPage.project.formContent.projectDescriptionPlaceholder")}
-                    {...register("description", {
-                      required: {
-                        value: true,
-                        message: "Project description is required",
-                      },
-                    })}
-                  />
-                  {errors?.description?.message && (
-                    <p className={styles.error}>{errors.description.message}</p>
-                  )}
-                  <button className={styles.submitBtn}>{t("dashboardPage.project.formContent.saveProjectBtn")}</button>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
+        <ProjectForm
+          handleAddProject={handleAddProject}
+          setShowModal={() => setShowModal(false)}
+          handleEditProject={handleEditProject}
+          isEditMode={isEditMode}
+          editById={editById}
+          projects={projects}
+        />
       )}
     </div>
   );

@@ -2,21 +2,30 @@ import React from "react";
 import closeIcon from "../../assets/icons/close.svg";
 import styles from "../../styles/Taskbar.module.css";
 import { IAddTaskbarForm } from "../../types";
-import { useAddTaskbar } from "./Taskbar-hook";
+import { useAddStatus } from "./Taskbar-hook";
 
 // Props to access IAddTaskbarForm interface properties
 interface ITaskbarProps {
   taskbar: IAddTaskbarForm;
+  setIsTaskbarFormShown: (value: boolean) => void;
+  setIsTaskbarEditMode: (value: boolean) => void;
+  setEditById: (id: number) => void;
 }
 
-const Taskbar: React.FC<ITaskbarProps> = ({ taskbar }) => {
+const Taskbar: React.FC<ITaskbarProps> = ({
+  taskbar,
+  setIsTaskbarFormShown,
+  setIsTaskbarEditMode,
+  setEditById,
+}) => {
   // all needed fields and functions from useAddTaskbar hook
-  const { inputRef, isEditMode, setIsEditMode, status, setStatus } = useAddTaskbar(taskbar);
+  const { inputRef, isInputEditMode, setIsInputEditMode, status, setStatus } =
+    useAddStatus(taskbar);
 
   return (
     <div className={styles.taskbarContainer}>
       <div className={styles.inputContainer}>
-        {isEditMode ? (
+        {isInputEditMode ? (
           <input
             ref={inputRef}
             type="text"
@@ -26,7 +35,7 @@ const Taskbar: React.FC<ITaskbarProps> = ({ taskbar }) => {
         ) : (
           <p className={styles.status}>{status}</p>
         )}
-        <span onClick={() => setIsEditMode((prev) => !prev)}>+</span>
+        <span onClick={() => setIsInputEditMode((prev) => !prev)}>+</span>
       </div>
       <div className={styles.project}>
         <div className={styles.content}>
@@ -35,7 +44,16 @@ const Taskbar: React.FC<ITaskbarProps> = ({ taskbar }) => {
           </div>
           <div className={styles.info}>
             <p className={styles.title}>{taskbar.title}</p>
-            <button className={styles.editBtn}>Edit</button>
+            <button
+              className={styles.editBtn}
+              onClick={() => {
+                setIsTaskbarEditMode(true);
+                setEditById(taskbar.id);
+                setIsTaskbarFormShown(true);
+              }}
+            >
+              Edit
+            </button>
           </div>
           <div className={styles.projectImg}>
             <div className={styles.img}></div>

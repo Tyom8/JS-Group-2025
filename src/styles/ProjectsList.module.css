@@ -122,3 +122,30 @@
 .error {
   color: red;
 }
+
+.edit {
+ display: flex;
+ justify-content: space-between;
+ align-items: center; 
+}
+
+.editBtn {
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  background-color: rgb(237, 231, 213);  
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.dates {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin: 20px 0;
+}
+
+.dates input[type="date"] {
+  height: 10px;
+}

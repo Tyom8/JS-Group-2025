@@ -4,18 +4,19 @@ import Taskbar from "./components/Taskbar/Taskbar";
 import AddTaskbar from "./pages/AddTaskbar";
 import DashboardPage from "./pages/Dashboard";
 import LoginForm from "./pages/LoginForm";
+import "./i18n";
 
 function App() {
   return (
     <>
       {/* <DashBoardUsers /> */}
       {/* <AddTaskbar /> */}
-      <Header />
+      {/* <Header /> */}
       {/* <ProjectsList /> */}
       {/* <LoginForm /> */}
       {/* <DashboardPage /> */}
       {/* <Taskbar /> */}
-      {/* <AddTaskbar /> */}
+      <AddTaskbar />
     </>
   );
 }
