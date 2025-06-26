@@ -1,11 +1,36 @@
+import {
+  IAddNewProject,
+  IAddTaskbarForm,
+  IAddUser,
+  ILoginForm,
+} from "../types";
 import { api } from "./api";
 
-export async function login(email: string, password: string) {
+export async function login(
+  email: string,
+  password: string
+): Promise<ILoginForm> {
   try {
-    const response = await api.post("/authorized-users", { email, password });
+    const response = await api.post<ILoginForm>("/authorized-users", {
+      email,
+      password,
+    });
     return response.data;
   } catch (error) {
     console.error("An error occurred while trying to login");
+    throw error;
+  }
+}
+
+export async function updatePassword(password: string): Promise<ILoginForm> {
+  try {
+    const response = await api.put<ILoginForm>("/authorized-users", {
+      password,
+    });
+    return response.data;
+  } catch (error) {
+    console.error("An error occurred while updating password");
+    throw error;
   }
 }
 
@@ -17,9 +42,9 @@ export async function addDashboardUser(
   phoneNumber: string,
   gender: "male" | "female",
   userImg?: string
-) {
+): Promise<IAddUser> {
   try {
-    const response = await api.post("/users", {
+    const response = await api.post<IAddUser>("/users", {
       firstName,
       lastName,
       email,
@@ -31,6 +56,7 @@ export async function addDashboardUser(
     return response.data;
   } catch (error) {
     console.error("An error occurred while adding the user");
+    throw error;
   }
 }
 
@@ -39,9 +65,9 @@ export async function addProject(
   description: string,
   startDate: string,
   endDate: string
-) {
+): Promise<IAddNewProject> {
   try {
-    const response = await api.post("/projects", {
+    const response = await api.post<IAddNewProject>("/projects", {
       name,
       description,
       startDate,
@@ -50,15 +76,17 @@ export async function addProject(
     return response.data;
   } catch (error) {
     console.error("An error occurred while adding project");
+    throw error;
   }
 }
 
-export async function getProjects() {
+export async function getProjects(): Promise<IAddNewProject[]> {
   try {
-    const response = await api.get("/projects");
+    const response = await api.get<IAddNewProject[]>("/projects");
     return response.data;
   } catch (error) {
     console.error("An error occurred while getting projects");
+    throw error;
   }
 }
 
@@ -67,9 +95,9 @@ export async function updateProject(
   description: string,
   startDate: string,
   endDate: string
-) {
+): Promise<IAddNewProject> {
   try {
-    const response = await api.put("/projects", {
+    const response = await api.put<IAddNewProject>("/projects", {
       name,
       description,
       startDate,
@@ -78,6 +106,7 @@ export async function updateProject(
     return response.data;
   } catch (error) {
     console.error("An error occurred while updating the project");
+    throw error;
   }
 }
 
@@ -89,9 +118,9 @@ export async function addTaskbar(
   member: string,
   status?: string,
   image?: string
-) {
+): Promise<IAddTaskbarForm> {
   try {
-    const response = await api.post("/taskbars", {
+    const response = await api.post<IAddTaskbarForm>("/taskbars", {
       date,
       title,
       description,
@@ -103,15 +132,17 @@ export async function addTaskbar(
     return response.data;
   } catch (error) {
     console.error("An error occurred while adding taskbar");
+    throw error;
   }
 }
 
-export async function getTaskbars() {
+export async function getTaskbars(): Promise<IAddTaskbarForm[]> {
   try {
-    const response = await api.get("/taskbars");
+    const response = await api.get<IAddTaskbarForm[]>("/taskbars");
     return response.data;
   } catch (error) {
     console.error("An error occurred while getting taskbars");
+    throw error;
   }
 }
 
@@ -123,9 +154,9 @@ export async function updateTaskbar(
   member: string,
   status?: string,
   image?: string
-) {
+): Promise<IAddTaskbarForm> {
   try {
-    const response = await api.put("/taskbars", {
+    const response = await api.put<IAddTaskbarForm>("/taskbars", {
       date,
       title,
       description,
@@ -137,5 +168,6 @@ export async function updateTaskbar(
     return response.data;
   } catch (error) {
     console.error("An error occurred while updating taskbar");
+    throw error;
   }
 }
