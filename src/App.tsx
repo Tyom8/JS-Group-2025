@@ -14,9 +14,9 @@ function App() {
       {/* <Header /> */}
       {/* <ProjectsList /> */}
       {/* <LoginForm /> */}
-      <DashboardPage />
+      {/* <DashboardPage /> */}
       {/* <Taskbar /> */}
-      {/* <AddTaskbar /> */}
+      <AddTaskbar />
     </>
   );
 }

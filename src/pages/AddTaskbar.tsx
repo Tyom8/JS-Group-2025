@@ -1,9 +1,9 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import Taskbar from "../components/Taskbar/Taskbar";
 import { useAddTaskbar } from "../components/TaskbarForm/AddTaskbar-hook";
 import AddTaskbarForm from "../components/TaskbarForm/AddTaskbarForm";
 import styles from "../styles/AddTaskbarForm.module.css";
-import { useTranslation } from "react-i18next";
 
 const AddTaskbar: React.FC = () => {
   // all needed fields and functions from useAddTaskbar hook
@@ -12,6 +12,11 @@ const AddTaskbar: React.FC = () => {
     isTaskbarFormShown,
     setIsTaskbarFormShown,
     handleAddTaskbar,
+    setIsTaskbaEditMode,
+    handleEditTaskbar,
+    editById,
+    isTaskbarEditMode,
+    setEditById,
   } = useAddTaskbar();
 
   const { t } = useTranslation();
@@ -19,11 +24,17 @@ const AddTaskbar: React.FC = () => {
   return (
     <>
       <div className={styles.addTaskbarBtn}>
-        <button onClick={() => setIsTaskbarFormShown(true)}>{t("taskbarPage.newTaskbarBtn")}</button>
+        <button onClick={() => setIsTaskbarFormShown(true)}>
+          {t("taskbarPage.newTaskbarBtn")}
+        </button>
         {isTaskbarFormShown && (
           <AddTaskbarForm
             sendData={handleAddTaskbar}
             setIsClosed={() => setIsTaskbarFormShown((prev) => !prev)}
+            handleEditTaskbar={handleEditTaskbar}
+            isTaskbarEditMode={isTaskbarEditMode}
+            editById={editById}
+            taskbars={addedTaskbars}
           />
         )}
       </div>
@@ -32,7 +43,13 @@ const AddTaskbar: React.FC = () => {
           <p className={styles.text}>{t("taskbarPage.noTaskbarsText")}</p>
         ) : (
           addedTaskbars.map((taskbar) => (
-            <Taskbar key={taskbar.id} taskbar={taskbar} />
+            <Taskbar
+              key={taskbar.id}
+              taskbar={taskbar}
+              setEditById={setEditById}
+              setIsTaskbarEditMode={setIsTaskbaEditMode}
+              setIsTaskbarFormShown={setIsTaskbarFormShown}
+            />
           ))
         )}
       </div>
