@@ -1,8 +1,11 @@
+import { login as loginApi } from "../api/auth";
 import appleIcon from "../assets/apple.png";
 import facebookIcon from "../assets/facebook.png";
 import googleIcon from "../assets/google.png";
 import yungManeIcon from "../assets/yungMan.png";
 import { useFormValidation } from "../hooks/FormValidation-hook";
+import { useAppDispatch } from "../store/hooks";
+import { login as loginAction } from "../store/loginUsers/userLoginActions";
 import styles from "../styles/LoginForm.module.css";
 import { ILoginForm } from "../types";
 
@@ -13,11 +16,16 @@ function LoginForm() {
     reset,
     handleSubmit,
   } = useFormValidation<ILoginForm>();
-
-  const onSubmit = (data: ILoginForm) => {
-    console.log(data);
-    reset();
-  };
+  const dispatch = useAppDispatch();
+  const onSubmit = async (data: ILoginForm) => {
+    try {
+      const loggedInUser = await loginApi(data.email, data.password);
+      dispatch(loginAction(loggedInUser));
+      reset();
+    } catch (error) {
+      console.log("Error");
+    }
+  }; // this isn't working
 
   return (
     <div className={styles.loginContainer}>
@@ -83,7 +91,6 @@ function LoginForm() {
           <button className={styles.loginBtn} type="submit">
             Login
           </button>
-
           <div className={styles.divider}>- or -</div>
 
           <div className={styles.socialLogin}>
