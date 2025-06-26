@@ -11,7 +11,7 @@ export async function login(
   password: string
 ): Promise<ILoginForm> {
   try {
-    const response = await api.post<ILoginForm>("/authorized-users", {
+    const response = await api.post<ILoginForm>("authorized-users", {
       email,
       password,
     });
@@ -24,7 +24,7 @@ export async function login(
 
 export async function updatePassword(password: string): Promise<ILoginForm> {
   try {
-    const response = await api.put<ILoginForm>("/authorized-users", {
+    const response = await api.put<ILoginForm>("authorized-users", {
       password,
     });
     return response.data;
@@ -44,7 +44,7 @@ export async function addDashboardUser(
   userImg?: string
 ): Promise<IAddUser> {
   try {
-    const response = await api.post<IAddUser>("/users", {
+    const response = await api.post<IAddUser>("users", {
       firstName,
       lastName,
       email,
@@ -67,7 +67,7 @@ export async function addProject(
   endDate: string
 ): Promise<IAddNewProject> {
   try {
-    const response = await api.post<IAddNewProject>("/projects", {
+    const response = await api.post<IAddNewProject>("projects", {
       name,
       description,
       startDate,
@@ -82,7 +82,7 @@ export async function addProject(
 
 export async function getProjects(): Promise<IAddNewProject[]> {
   try {
-    const response = await api.get<IAddNewProject[]>("/projects");
+    const response = await api.get<IAddNewProject[]>("projects");
     return response.data;
   } catch (error) {
     console.error("An error occurred while getting projects");
@@ -97,7 +97,7 @@ export async function updateProject(
   endDate: string
 ): Promise<IAddNewProject> {
   try {
-    const response = await api.put<IAddNewProject>("/projects", {
+    const response = await api.put<IAddNewProject>("projects", {
       name,
       description,
       startDate,
@@ -120,7 +120,7 @@ export async function addTaskbar(
   image?: string
 ): Promise<IAddTaskbarForm> {
   try {
-    const response = await api.post<IAddTaskbarForm>("/taskbars", {
+    const response = await api.post<IAddTaskbarForm>("taskbars", {
       date,
       title,
       description,
@@ -138,7 +138,7 @@ export async function addTaskbar(
 
 export async function getTaskbars(): Promise<IAddTaskbarForm[]> {
   try {
-    const response = await api.get<IAddTaskbarForm[]>("/taskbars");
+    const response = await api.get<IAddTaskbarForm[]>("taskbars");
     return response.data;
   } catch (error) {
     console.error("An error occurred while getting taskbars");
@@ -156,7 +156,7 @@ export async function updateTaskbar(
   image?: string
 ): Promise<IAddTaskbarForm> {
   try {
-    const response = await api.put<IAddTaskbarForm>("/taskbars", {
+    const response = await api.put<IAddTaskbarForm>("taskbars", {
       date,
       title,
       description,
