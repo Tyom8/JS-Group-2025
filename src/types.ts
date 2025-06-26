@@ -36,5 +36,4 @@ export interface ILoginForm {
   id: number;
   email: string;
   password: string;
-  resetEmail: string;
 }

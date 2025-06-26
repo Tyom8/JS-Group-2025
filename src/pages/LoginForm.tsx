@@ -1,16 +1,12 @@
-import { useState } from "react";
 import appleIcon from "../assets/apple.png";
 import facebookIcon from "../assets/facebook.png";
 import googleIcon from "../assets/google.png";
 import yungManeIcon from "../assets/yungMan.png";
-import styles from "../styles/LoginForm.module.css";
 import { useFormValidation } from "../hooks/FormValidation-hook";
+import styles from "../styles/LoginForm.module.css";
 import { ILoginForm } from "../types";
 
 function LoginForm() {
-  const [resetMessage, setResetMessage] = useState<string>("");
-  const [showResetModal, setShowResetModal] = useState<boolean>(false);
-
   const {
     register,
     formState: { errors },
@@ -18,22 +14,9 @@ function LoginForm() {
     handleSubmit,
   } = useFormValidation<ILoginForm>();
 
-  const {
-    register: resetRegister,
-    reset: resetForm,
-    formState: {errors: resetErrors},
-    handleSubmit: handleResetSubmit,
-  } = useFormValidation<ILoginForm>();
-
   const onSubmit = (data: ILoginForm) => {
     console.log(data);
     reset();
-  };
-
-  const onResetPasswordSubmit = (data: ILoginForm) => {
-    console.log(data);
-    setResetMessage("Email is sent successfully");
-    resetForm();
   };
 
   return (
@@ -92,11 +75,7 @@ function LoginForm() {
                 {errors.password.message}
               </span>
             )}
-            <button
-              type="button"
-              className={styles.forgotPassword}
-              onClick={() => setShowResetModal(true)}
-            >
+            <button type="button" className={styles.forgotPassword}>
               Forgot Password?
             </button>
           </div>
@@ -128,39 +107,6 @@ function LoginForm() {
       <div className={styles.imageSection}>
         <img src={yungManeIcon} alt="yung man icon visual" />
       </div>
-
-      {showResetModal && (
-        <div className={styles.resetModal}>
-          <div className={styles.resetContent}>
-            <h3>Reset Password</h3>
-            <form onSubmit={handleResetSubmit(onResetPasswordSubmit)}>
-              <input
-                type="email"
-                placeholder="Enter your email"
-                {...resetRegister("resetEmail", {
-                  required: {
-                    value: true,
-                    message: "This field is required"
-                  }
-                })}
-              />
-              {resetErrors?.resetEmail?.message && (
-                <span className={styles.errorMessage}>{resetErrors.resetEmail.message}</span>
-              )}
-              <button type="submit">Send Reset Link</button>
-              {resetMessage && (
-                <p className={styles.resetMessage}>{resetMessage}</p>
-              )}
-            </form>
-            <button
-              className={styles.closeBtn}
-              onClick={() => setShowResetModal(false)}
-            >
-              Close
-            </button>
-          </div>
-        </div>
-      )}
     </div>
   );
 }
