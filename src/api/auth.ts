@@ -60,6 +60,15 @@ export async function addDashboardUser(
   }
 }
 
+export async function getDashboardUsers():Promise<IAddUser[]> {
+  try {
+    const response = await api.get<IAddUser[]>('users');
+    return response.data;
+  } catch (error) {
+    console.error("Cannot get users");
+    throw error;
+  }
+}
 export async function addProject(
   name: string,
   description: string,
