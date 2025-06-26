@@ -109,8 +109,8 @@ body {
 
 .addTaskbarBtn button {
   position: fixed;
-  top: 20px;
-  right: 40px;
+  top: 130px;
+  right: 60px;
   z-index: 10;
   padding: 10px 15px;
   border: none;
@@ -134,12 +134,13 @@ body {
 }
 
 .taskbars {
-  margin-top: 40px;
+  margin-top: 70px;
   display: flex;
   gap: 30px;
   overflow-x: auto;
   padding: 10px;
   flex-wrap: nowrap;
+  width: 900px;
 }
 
 .text {

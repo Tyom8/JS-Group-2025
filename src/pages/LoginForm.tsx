@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import { login as loginApi } from "../api/auth";
 import appleIcon from "../assets/apple.png";
 import facebookIcon from "../assets/facebook.png";
@@ -17,10 +18,12 @@ function LoginForm() {
     handleSubmit,
   } = useFormValidation<ILoginForm>();
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
   const onSubmit = async (data: ILoginForm) => {
     try {
       const loggedInUser = await loginApi(data.email, data.password);
       dispatch(loginAction(loggedInUser));
+      navigate('/dashboard');
       reset();
     } catch (error) {
       console.log("Error");

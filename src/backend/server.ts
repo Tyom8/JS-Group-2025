@@ -37,7 +37,6 @@ const server = http.createServer((req, res) => {
               id: AUTH_USERS_DATA.id ?? Date.now(),
               email: AUTH_USERS_DATA.email,
               password: AUTH_USERS_DATA.password,
-              resetEmail: AUTH_USERS_DATA.resetEmail || "",
             };
 
             const existingSignedInData = fs.existsSync(

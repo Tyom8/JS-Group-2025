@@ -13,13 +13,19 @@
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  margin-bottom: 20px;
+  position: absolute;
+  top: 130px;
 }
 
 .projectList {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: wrap;
   gap: 16px;
+  position: relative;
+  top: 140px;
+  width: 900px;
 }
 
 .projectCard {
@@ -27,6 +33,7 @@
   border-radius: 8px;
   padding: 12px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  width: 230px;
 }
 
 .projectImgPlaceholder {

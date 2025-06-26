@@ -1,14 +1,13 @@
 .userDashboard {
   position: absolute;
-  right: 100px;
-  top: 50px;
+  right: 80px;
+  top: 130px;
 }
 
 .usersContainer {
   border-radius: 10px;
   box-shadow: 0px 0px 10px #d3c4b8;
-  max-width: 250px;
-  width: 100%;
+  width: 270px;
   height: 550px;
   padding: 30px;
   display: flex;
@@ -108,7 +107,11 @@
 .addUserForm {
   display: flex;
   flex-direction: column;
-  gap: 25px;
+  gap: 30px;
+}
+
+.addUserForm input:first-child {
+  margin-top: 40px;
 }
 
 .addUserForm input {
@@ -130,6 +133,7 @@
   justify-content: flex-start;
   align-items: center;
   gap: 20px;
+  margin-bottom: -60px;
 }
 
 .checkboxContainer label {
@@ -175,4 +179,9 @@
   top: 10px;
   right: 10px;
   cursor: pointer;
+}
+
+.addUserForm input[type="file"] {
+  width: 100%;
+  padding: 30px 0;
 }

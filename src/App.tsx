@@ -1,28 +1,39 @@
 import { Provider } from "react-redux";
-import { Route, Routes } from "react-router-dom";
+import { Outlet, Route, Routes } from "react-router-dom";
 import "./App.css";
 import DashBoardUsers from "./components/DashboardUsers/DashboardUsers";
+import Header from "./components/Header/Header";
 import "./i18n";
 import AddTaskbar from "./pages/AddTaskbar";
 import LoginForm from "./pages/LoginForm";
 import { useAppSelector } from "./store/hooks";
 import store from "./store/store";
-
+import DashboardPage from "./pages/Dashboard";
+function Layout() {
+  return (
+    <>
+      <Header />
+      <Outlet />
+    </>
+  );
+}
 function AppContent() {
-  const { isAuthenticated } = useAppSelector((state) => state.user);
+  // const { isAuthenticated } = useAppSelector((state) => state.user);
 
-  if (!isAuthenticated) {
-    return <LoginForm />;
-  }
+  // if (!isAuthenticated) {
+  //   return <LoginForm />;
+  // }
 
   return (
-    <Routes>
-      <Route path="/login" element={<LoginForm />} />
-      <Route path="/">
-        <Route path="dashboard" element={<DashBoardUsers />} />
-        <Route path="taskbar/:id" element={<AddTaskbar />} />
-      </Route>
-    </Routes>
+    <>
+      <Routes>
+        {/* <Route path="/login" element={<LoginForm />} /> */}
+        <Route path="/" element={<Layout/>}>
+          <Route path="dashboard" element={<DashboardPage />} />
+          <Route path="taskbar" element={<AddTaskbar />} />
+        </Route>
+      </Routes>
+    </>
   );
 }
 function App() {
