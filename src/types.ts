@@ -19,7 +19,7 @@ export interface IAddTaskbarForm {
   description: string;
   category: string;
   member: string;
-  status: string;
+  status?: string;
 }
 
 // All the types of project adding input fields
