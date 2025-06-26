@@ -9,6 +9,7 @@ import { useAppDispatch } from "../store/hooks";
 import { login as loginAction } from "../store/loginUsers/userLoginActions";
 import styles from "../styles/LoginForm.module.css";
 import { ILoginForm } from "../types";
+import { useEffect } from "react";
 
 function LoginForm() {
   const {
@@ -19,16 +20,25 @@ function LoginForm() {
   } = useFormValidation<ILoginForm>();
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const storedUsers = localStorage.getItem("loggedInUsers");
+    if(storedUsers) {
+      dispatch(loginAction(JSON.parse(storedUsers)))
+    }
+  }, [dispatch])
+  
   const onSubmit = async (data: ILoginForm) => {
     try {
       const loggedInUser = await loginApi(data.email, data.password);
+      localStorage.setItem("loggedInUsers", JSON.stringify(loggedInUser));
       dispatch(loginAction(loggedInUser));
       navigate('/dashboard');
       reset();
     } catch (error) {
       console.log("Error");
     }
-  }; // this isn't working
+  };
 
   return (
     <div className={styles.loginContainer}>

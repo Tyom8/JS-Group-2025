@@ -4,12 +4,15 @@ import image from "../../assets/default-image.jpg";
 import styles from "../../styles/Header.module.css";
 import { useLanguage } from "./Language-hook";
 import { useUserProfileContent } from "./ShowUserProfileContent-hook";
+import { useAppDispatch, useAppSelector } from "../../store/hooks";
+import { logout } from "../../store/loginUsers/userLoginActions";
 
 const Header: React.FC = () => {
   // all needed fields and functions from useUserProfileContent hook
   const { isProfileShown, toggle } = useUserProfileContent();
   const { language, changeLanguage } = useLanguage();
   const { t } = useTranslation();
+  const dispatch = useAppDispatch();
 
   return (
     <header>
@@ -31,12 +34,14 @@ const Header: React.FC = () => {
         <div className={styles.userContent} onClick={() => toggle()}>
           <div className={styles.userInfo}>
             <img src={image} alt="user image" />
-            <p>First name</p>
+            <p>Name</p>
           </div>
           {isProfileShown && (
             <div className={`${styles.showedProfile} ${language === "hy" ? styles.hyLangProfileText : ""}`}>
               <p>{t("header.changePassword")}</p>
-              <p>{t("header.logout")}</p>
+              <p onClick={() => {
+                dispatch(logout())
+              }}>{t("header.logout")}</p>
             </div>
           )}
         </div>

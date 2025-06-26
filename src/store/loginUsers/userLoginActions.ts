@@ -5,6 +5,9 @@ export const login = (user: User): UserActionTypes => ({
   payload: user,
 });
 
-export const logout = (): UserActionTypes => ({
-  type: LOGOUT,
-});
+export const logout = (): UserActionTypes => {
+  localStorage.removeItem("loggedInUsers");
+  return {
+    type: LOGOUT,
+  };
+};

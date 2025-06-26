@@ -15,6 +15,7 @@ export interface DashboardUsersState {
 
 export const ADD_USER = "ADD_USER";
 export const DELETE_USER = "DELETE_USER";
+export const GET_USERS = "GET_USERS";
 
 interface AddUserAction {
   type: typeof ADD_USER;
@@ -26,4 +27,9 @@ interface DeleteUserAction {
   payload: number; // delete user by id
 }
 
-export type DashboardUsersActionTypes = AddUserAction | DeleteUserAction;
+interface GetUsers {
+  type: typeof GET_USERS;
+  payload: DashboardUsers[];
+}
+
+export type DashboardUsersActionTypes = AddUserAction | DeleteUserAction | GetUsers;

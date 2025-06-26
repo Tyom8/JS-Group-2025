@@ -1,27 +1,24 @@
 import {
   ADD_USER,
+  DashboardUsers,
   DashboardUsersActionTypes,
-  DashboardUsersState,
   DELETE_USER,
+  GET_USERS,
 } from "./dashboardUsersType";
 
-const initialState: DashboardUsersState = {
-  users: [],
-};
+const initialState: DashboardUsers[] = [];
 
 export const dashboardUsersReducer = (
   state = initialState,
   action: DashboardUsersActionTypes
-): DashboardUsersState => {
+): DashboardUsers[] => {
   switch (action.type) {
     case ADD_USER:
-      return {
-        users: [...state.users, action.payload],
-      };
+      return [...state, action.payload];
+    case GET_USERS:
+      return action.payload;
     case DELETE_USER:
-      return {
-        users: state.users.filter((user) => user.id !== action.payload),
-      };
+      return state.filter((user) => user.id !== action.payload);
     default:
       return state;
   }

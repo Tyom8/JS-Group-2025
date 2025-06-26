@@ -3,6 +3,7 @@ import {
   DashboardUsers,
   DashboardUsersActionTypes,
   DELETE_USER,
+  GET_USERS,
 } from "./dashboardUsersType";
 
 export const addUser = (user: DashboardUsers): DashboardUsersActionTypes => ({
@@ -13,4 +14,11 @@ export const addUser = (user: DashboardUsers): DashboardUsersActionTypes => ({
 export const deleteUser = (id: number): DashboardUsersActionTypes => ({
   type: DELETE_USER,
   payload: id,
+});
+
+export const getUsers = (
+  users: DashboardUsers[]
+): DashboardUsersActionTypes => ({
+  type: GET_USERS,
+  payload: users,
 });

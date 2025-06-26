@@ -18,16 +18,16 @@ function Layout() {
   );
 }
 function AppContent() {
-  // const { isAuthenticated } = useAppSelector((state) => state.user);
+  const { isAuthenticated } = useAppSelector((state) => state.user);
 
-  // if (!isAuthenticated) {
-  //   return <LoginForm />;
-  // }
+  if (!isAuthenticated) {
+    return <LoginForm />;
+  }
 
   return (
     <>
       <Routes>
-        {/* <Route path="/login" element={<LoginForm />} /> */}
+        <Route path="/login" element={<LoginForm />} />
         <Route path="/" element={<Layout/>}>
           <Route path="dashboard" element={<DashboardPage />} />
           <Route path="taskbar" element={<AddTaskbar />} />
