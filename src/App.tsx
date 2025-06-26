@@ -29,6 +29,7 @@ function AppContent() {
       <Routes>
         <Route path="/login" element={<LoginForm />} />
         <Route path="/" element={<Layout/>}>
+          <Route index element={<DashboardPage />}/>
           <Route path="dashboard" element={<DashboardPage />} />
           <Route path="taskbar" element={<AddTaskbar />} />
         </Route>
