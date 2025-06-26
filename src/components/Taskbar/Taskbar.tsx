@@ -2,7 +2,6 @@ import React from "react";
 import closeIcon from "../../assets/icons/close.svg";
 import styles from "../../styles/Taskbar.module.css";
 import { IAddTaskbarForm } from "../../types";
-import { useAddTaskbar } from "../TaskbarForm/AddTaskbar-hook";
 import { useAddStatus } from "./Taskbar-hook";
 
 // Props to access IAddTaskbarForm interface properties
@@ -13,7 +12,12 @@ interface ITaskbarProps {
   setEditById: (id: number) => void;
 }
 
-const Taskbar: React.FC<ITaskbarProps> = ({ taskbar, setIsTaskbarFormShown, setIsTaskbarEditMode, setEditById }) => {
+const Taskbar: React.FC<ITaskbarProps> = ({
+  taskbar,
+  setIsTaskbarFormShown,
+  setIsTaskbarEditMode,
+  setEditById,
+}) => {
   // all needed fields and functions from useAddTaskbar hook
   const { inputRef, isInputEditMode, setIsInputEditMode, status, setStatus } =
     useAddStatus(taskbar);
