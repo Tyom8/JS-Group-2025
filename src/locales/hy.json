@@ -39,6 +39,7 @@
       },
       "project": {
         "addProjectBtn": "Նոր Պրոյեկտ",
+        "noProjectText": "Չկա պրոյեկտ",
         "formContent": {
           "projectNamePlaceholder": "Պրոյեկտի անունը",
           "projectDescriptionPlaceholder": "Պրոյեկտի նկարագրությունը",

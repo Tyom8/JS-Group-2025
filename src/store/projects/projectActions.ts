@@ -22,7 +22,10 @@ export const updateProject = (project: Project): ProjectActionTypes => ({
   payload: project,
 });
 
-export const deleteProject = (id: number): ProjectActionTypes => ({
-  type: DELETE_PROJECT,
-  payload: id,
-});
+export const deleteProject = (id: number): ProjectActionTypes => {
+  localStorage.removeItem("projects");
+  return {
+    type: DELETE_PROJECT,
+    payload: id,
+  };
+};

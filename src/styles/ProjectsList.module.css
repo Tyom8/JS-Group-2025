@@ -34,6 +34,9 @@
   padding: 12px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   width: 230px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .projectImgPlaceholder {
@@ -53,6 +56,12 @@
   display: flex;
   gap: 10px;
   margin-top: 6px;
+}
+
+.projectInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 /* Modal */
@@ -131,16 +140,16 @@
 }
 
 .edit {
- display: flex;
- justify-content: space-between;
- align-items: center; 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .editBtn {
   border: none;
   padding: 5px 10px;
   border-radius: 5px;
-  background-color: rgb(237, 231, 213);  
+  background-color: rgb(237, 231, 213);
   font-weight: 600;
   cursor: pointer;
 }
@@ -155,4 +164,16 @@
 
 .dates input[type="date"] {
   height: 10px;
+}
+
+.projectCard .closeIcon {
+  position: relative;
+  left: 185px;
+  cursor: pointer;
+}
+
+.text {
+  padding: 10px;
+  background-color: #dcc4b2;
+  border-radius: 10px;
 }

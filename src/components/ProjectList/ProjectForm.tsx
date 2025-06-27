@@ -39,10 +39,12 @@ const ProjectForm: React.FC<IProjectListProps> = ({
   useEffect(() => {
     if (isEditMode && editById !== null) {
       const projectToEdit = projects.find((proj) => proj.id === editById);
-      if (projectToEdit) {
+      if (projectToEdit && editById) {
         reset({
           name: projectToEdit.name,
           description: projectToEdit.description,
+          startDate: projectToEdit.startDate,
+          endDate: projectToEdit.endDate
         });
       }
     }

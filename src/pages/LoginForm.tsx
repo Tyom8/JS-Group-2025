@@ -1,5 +1,5 @@
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { login as loginApi } from "../api/auth";
 import appleIcon from "../assets/apple.png";
 import facebookIcon from "../assets/facebook.png";
 import googleIcon from "../assets/google.png";
@@ -9,7 +9,6 @@ import { useAppDispatch } from "../store/hooks";
 import { login as loginAction } from "../store/loginUsers/userLoginActions";
 import styles from "../styles/LoginForm.module.css";
 import { ILoginForm } from "../types";
-import { useEffect } from "react";
 
 function LoginForm() {
   const {
@@ -23,21 +22,16 @@ function LoginForm() {
 
   useEffect(() => {
     const storedUsers = localStorage.getItem("loggedInUsers");
-    if(storedUsers) {
-      dispatch(loginAction(JSON.parse(storedUsers)))
+    if (storedUsers) {
+      dispatch(loginAction(JSON.parse(storedUsers)));
     }
-  }, [dispatch])
-  
-  const onSubmit = async (data: ILoginForm) => {
-    try {
-      const loggedInUser = await loginApi(data.email, data.password);
-      localStorage.setItem("loggedInUsers", JSON.stringify(loggedInUser));
-      dispatch(loginAction(loggedInUser));
-      navigate('/dashboard');
-      reset();
-    } catch (error) {
-      console.log("Error");
-    }
+  }, [dispatch]);
+
+  const onSubmit = (data: ILoginForm) => {
+    localStorage.setItem("loggedInUsers", JSON.stringify(data));
+    dispatch(loginAction(data));
+    navigate("/dashboard");
+    reset();
   };
 
   return (

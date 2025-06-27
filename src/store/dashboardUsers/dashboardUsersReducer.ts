@@ -14,7 +14,7 @@ export const dashboardUsersReducer = (
 ): DashboardUsers[] => {
   switch (action.type) {
     case ADD_USER:
-      return [...state, action.payload];
+      return state
     case GET_USERS:
       return action.payload;
     case DELETE_USER:

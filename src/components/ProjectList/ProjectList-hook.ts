@@ -1,9 +1,17 @@
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
+import { useAppDispatch, useAppSelector } from "../../store/hooks";
+import {
+  getProjects,
+  getProjects as getProjectsAction,
+  updateProject as updateProjectAction,
+} from "../../store/projects/projectActions";
 import { IAddNewProject } from "../../types";
 
 export const useAddNewProject = () => {
   // state to show added projects
-  const [projects, setProjects] = useState<IAddNewProject[]>([]);
+  // const [projects, setProjects] = useState<IAddNewProject[]>([]);
+  const projects = useAppSelector((state) => state.project.projects);
+  const dispatch = useAppDispatch();
   // state to show new project adding form
   const [showModal, setShowModal] = useState<boolean>(false);
   // state to make edit mode on
@@ -13,21 +21,27 @@ export const useAddNewProject = () => {
   // state to edit inputValue
   const [editInputValue, setEditInputValue] = useState<string>("");
 
-  // function that handles project adding
-  const handleAddProject = useCallback((data: IAddNewProject) => {
-    const now = new Date();
-    const formattedDate = now.toISOString().split("T")[0];
-
-    const newProject = {
-      ...data,
-      id: Date.now(),
-      startDate: formattedDate,
-      endDate: formattedDate,
+  useEffect(() => {
+    const getData = async () => {
+      const storedData = localStorage.getItem("projects");
+      if (storedData) {
+        const parsedProjects = JSON.parse(storedData);
+        dispatch(getProjectsAction(parsedProjects));
+      }
     };
 
-    setProjects((prev) => [...prev, newProject]);
-    setShowModal(false);
+    getData();
   }, []);
+
+  // function that handles project adding
+  const handleAddProject = useCallback((data: IAddNewProject) => {
+    data.id = Date.now();
+    const updated = [...projects, data];
+    dispatch(getProjects(updated));
+    localStorage.setItem("projects", JSON.stringify(updated));
+  }, []);
+
+
 
   const handleEditProject = useCallback(
     (
@@ -37,20 +51,31 @@ export const useAddNewProject = () => {
       newStartDate: string,
       newEndDate: string
     ) => {
-     setProjects((prev: IAddNewProject[]) =>
-      prev.map((item: IAddNewProject) => 
-        id === item.id ? {
-          ...item, 
-          name: newTitle, 
-          description: newDescription, 
-          startDate: newStartDate, 
-          endDate: newEndDate
-        } : item
-      ) 
-    )
-    setIsEditMode(true);
-    setEditById(null);
-    }, []);
+      const updatedProjects = projects.map((project) =>
+        project.id === id
+          ? {
+              ...project,
+              name: newTitle,
+              description: newDescription,
+              startDate: newStartDate,
+              endDate: newEndDate,
+            }
+          : project
+      );
+
+      dispatch(getProjects(updatedProjects));
+      localStorage.setItem("projects", JSON.stringify(updatedProjects));
+
+      const updatedProject = updatedProjects.find((p) => p.id === id);
+      if (updatedProject) {
+        dispatch(updateProjectAction(updatedProject));
+      }
+
+      setIsEditMode(true);
+      setEditById(null);
+    },
+    [projects, dispatch]
+  );
 
   return {
     projects,
@@ -58,11 +83,11 @@ export const useAddNewProject = () => {
     setShowModal,
     handleAddProject,
     handleEditProject,
-    isEditMode, 
-    setIsEditMode, 
-    editById, 
+    isEditMode,
+    setIsEditMode,
+    editById,
     setEditById,
-    editInputValue, 
-    setEditInputValue
+    editInputValue,
+    setEditInputValue,
   };
 };

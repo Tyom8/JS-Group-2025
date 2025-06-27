@@ -1,4 +1,5 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import defaultImage from "../../assets/default-image.jpg";
 import deleteIcon from "../../assets/icons/delete.svg";
 import styles from "../../styles/DashboardUsers.module.css";
@@ -15,6 +16,8 @@ const DashBoardUsers: React.FC = () => {
     handleDeleteUsers,
   } = useAddDashboardUsers();
 
+  const { t } = useTranslation();
+
   return (
     <div className={styles.userDashboard}>
       <div className={styles.usersContainer}>
@@ -25,7 +28,7 @@ const DashBoardUsers: React.FC = () => {
             setIsAddUserFormShown((prev) => !prev);
           }}
         >
-          Add new user
+          {t("dashboardPage.dashboardUsers.addUserBtn")}
         </button>
         {isAddUserFormShown && (
           <AddUserForm
@@ -34,15 +37,15 @@ const DashBoardUsers: React.FC = () => {
           />
         )}
         <div className={styles.users}>
-          {addedUsers.length === 0 ? (
-            <p>No users added</p>
+          {!addedUsers.length ? (
+            <p>{t("dashboardPage.dashboardUsers.noUsersText")}</p>
           ) : (
             addedUsers.map((user) => (
               <div className={styles.user} key={user.id}>
                 <img src={defaultImage} alt="user image" />
                 <div className={styles.info}>
-                  <h4 className={styles.username}>{user.firstName}</h4>
-                  <p className={styles.email}>{user.email}</p>
+                  <h4 className={styles.username}>{user?.firstName}</h4>
+                  <p className={styles.email}>{user?.email}</p>
                 </div>
                 <div className={styles.deleteBtn}>
                   <button

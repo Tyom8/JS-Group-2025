@@ -34,7 +34,6 @@ const Header: React.FC = () => {
         <div className={styles.userContent} onClick={() => toggle()}>
           <div className={styles.userInfo}>
             <img src={image} alt="user image" />
-            <p>Name</p>
           </div>
           {isProfileShown && (
             <div className={`${styles.showedProfile} ${language === "hy" ? styles.hyLangProfileText : ""}`}>

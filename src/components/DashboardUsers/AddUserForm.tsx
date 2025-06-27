@@ -25,8 +25,13 @@ const AddUserForm: React.FC<IUserFormProps> = ({ sendData, setIsClosed }) => {
   // function handles form submit
   // which sends the data and resets all the inputs
   const onSubmit = (data: IAddUser) => {
-    sendData(data);
-    reset();
+    try {
+      sendData(data);
+      reset();
+      setIsClosed(false);
+    } catch (error) {
+      console.error("Failed to add user:", error);
+    }
   };
 
   return (
@@ -46,7 +51,9 @@ const AddUserForm: React.FC<IUserFormProps> = ({ sendData, setIsClosed }) => {
           >
             <input
               type="text"
-              placeholder={t("dashboardPage.dashboardUsers.formContent.firstNamePlaceholder")}
+              placeholder={t(
+                "dashboardPage.dashboardUsers.formContent.firstNamePlaceholder"
+              )}
               {...register("firstName", {
                 required: {
                   value: true,
@@ -63,7 +70,9 @@ const AddUserForm: React.FC<IUserFormProps> = ({ sendData, setIsClosed }) => {
             )}
             <input
               type="text"
-              placeholder={t("dashboardPage.dashboardUsers.formContent.lastNamePlaceholder")}
+              placeholder={t(
+                "dashboardPage.dashboardUsers.formContent.lastNamePlaceholder"
+              )}
               {...register("lastName", {
                 required: {
                   value: true,
@@ -80,7 +89,9 @@ const AddUserForm: React.FC<IUserFormProps> = ({ sendData, setIsClosed }) => {
             )}
             <input
               type="email"
-              placeholder={t("dashboardPage.dashboardUsers.formContent.emailPlaceholder")}
+              placeholder={t(
+                "dashboardPage.dashboardUsers.formContent.emailPlaceholder"
+              )}
               {...register("email", {
                 required: {
                   value: true,
@@ -97,7 +108,9 @@ const AddUserForm: React.FC<IUserFormProps> = ({ sendData, setIsClosed }) => {
             )}
             <input
               type="password"
-              placeholder={t("dashboardPage.dashboardUsers.formContent.passwordPlaceholder")}
+              placeholder={t(
+                "dashboardPage.dashboardUsers.formContent.passwordPlaceholder"
+              )}
               {...register("password", {
                 required: {
                   value: true,
@@ -116,7 +129,9 @@ const AddUserForm: React.FC<IUserFormProps> = ({ sendData, setIsClosed }) => {
             )}
             <input
               type="tel"
-              placeholder={t("dashboardPage.dashboardUsers.formContent.phoneNumberPlaceholder")}
+              placeholder={t(
+                "dashboardPage.dashboardUsers.formContent.phoneNumberPlaceholder"
+              )}
               {...register("phoneNumber", {
                 required: {
                   value: true,
@@ -133,7 +148,9 @@ const AddUserForm: React.FC<IUserFormProps> = ({ sendData, setIsClosed }) => {
             )}
             <div className={styles.checkboxContainer}>
               <label htmlFor="male">
-                <span>{t("dashboardPage.dashboardUsers.formContent.gender.male")}</span>
+                <span>
+                  {t("dashboardPage.dashboardUsers.formContent.gender.male")}
+                </span>
                 <input
                   type="radio"
                   value="male"
@@ -146,7 +163,9 @@ const AddUserForm: React.FC<IUserFormProps> = ({ sendData, setIsClosed }) => {
                 />
               </label>
               <label htmlFor="female">
-                <span>{t("dashboardPage.dashboardUsers.formContent.gender.female")}</span>
+                <span>
+                  {t("dashboardPage.dashboardUsers.formContent.gender.female")}
+                </span>
                 <input
                   type="radio"
                   value="female"
