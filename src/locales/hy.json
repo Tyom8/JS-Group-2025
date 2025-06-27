@@ -1,0 +1,61 @@
+{
+  "translation": {
+    "header": {
+      "changePassword": "Փոխել գաղտնաբառը",
+      "logout": "Դուրս գալ"
+    },
+    "dashboardPage": {
+      "dashboardUsers": {
+        "addUserBtn": "Ավելացնել նոր օգտատեր",
+        "noUsersText": "Օգտատերերը ավելացված չեն",
+        "formContent": {
+          "title": "Ավելացնել օգտատեր",
+          "firstNamePlaceholder": "Մուտքագրեք ձեր անունը",
+          "lastNamePlaceholder": "Մուտքագրեք ձեր ազգանունը",
+          "emailPlaceholder": "Մուտքագրեք ձեր էլ. փոստը",
+          "passwordPlaceholder": "Մուտքագրեք ձեր գաղտնաբառը",
+          "phoneNumberPlaceholder": "Մուտքագրեք ձեր հեռախոսահամարը",
+          "gender": {
+            "male": "Ա",
+            "female": "Ի"
+          },
+          "requiredFields": {
+            "firstNameRequired": "Անունը պարտադիր է լրացման",
+            "lastNameRequired": "Ազգանունը պարտադիր է լրացման",
+            "emailRequired": "Էլ. փոստը պարտադիր է լրացման",
+            "passwordRequired": "Գաղտնաբառը պարտադիր է լրացման",
+            "phoneNumberRequired": "Հեռախոսահամարը պարտադիր է լրացման",
+            "genderRequired": "Սեռը պարտադիր է ընտրել"
+          },
+          "patterns": {
+            "firstNamePattern": "Սխալ անվան ֆորմատ",
+            "lastNamePattern": "Սխալ ազգանվան ֆորմատ",
+            "emailPattern": "Սխալ էլ. փոստի ֆորմատ",
+            "passwordPattern": "Գաղտնաբառը պետք է պարունակի 8 նիշ: Առնվազն մեկ մեծատառ + առնվազն մեկ փոքրատառ + առնվազն մեկ թիվ + առնվազն մեկ հատուկ նիշ (8 վավեր նիշ)",
+            "phoneNumberPatter": "Սխալ հեռախոսահամարի ֆորմատ"
+          },
+          "button": "Ավելացնել"
+        }
+      },
+      "project": {
+        "addProjectBtn": "Նոր Պրոյեկտ",
+        "formContent": {
+          "projectNamePlaceholder": "Պրոյեկտի անունը",
+          "projectDescriptionPlaceholder": "Պրոյեկտի նկարագրությունը",
+          "saveProjectBtn": "Պահպանել"
+        }
+      }
+    },
+    "taskbarPage": {
+      "newTaskbarBtn": "Նոր առաջադրանք",
+      "formContent": {
+        "titlePlaceholder": "Ավելացրեք վերնագիր",
+        "descriptionPlaceholder": "Ավելացրեք նկարագրություն",
+        "selectCategoryPlaceholder": "Ընտրեք կատեգորիա",
+        "selectMembersPlaceholder": "Ընտրեք անդամներին",
+        "addBtn": "Ավելացնել"
+      },
+      "noTaskbarsText": "Առաջադրանքներն ավելացված չեն"
+    }
+  }
+}

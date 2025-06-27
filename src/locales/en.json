@@ -1,0 +1,61 @@
+{
+  "translation": {
+    "header": {
+      "changePassword": "Change Password",
+      "logout": "Logout"
+    },
+    "dashboardPage": {
+      "dashboardUsers": {
+        "addUserBtn": "Add new User",
+        "noUsersText": "No users added",
+        "formContent": {
+          "title": "Add User",
+          "firstNamePlaceholder": "Enter your first name",
+          "lastNamePlaceholder": "Enter your last name",
+          "emailPlaceholder": "Enter your email",
+          "passwordPlaceholder": "Enter your password",
+          "phoneNumberPlaceholder": "Enter your phone number",
+          "gender": {
+            "male": "Male",
+            "female": "Female"
+          },
+          "requiredFields": {
+            "firstNameRequired": "First Name is required",
+            "lastNameRequired": "Last Name is required",
+            "emailRequired": "Email is required",
+            "passwordRequired": "Password is required",
+            "phoneNumberRequired": "Phone Number is required",
+            "genderRequired": "Gender is required"
+          },
+          "patterns": {
+            "firstNamePattern": "Invalid firstName format",
+            "lastNamePattern": "Invalid lastName format",
+            "emailPattern": "Invalid email format",
+            "passwordPattern": "Password should contain only 8 characters, At least one uppercase letter + at least one lowercase letter + at least one digit + at least one special character  (8 valid characters)",
+            "phoneNumberPatter": "Invalid phone number format"
+          },
+          "button": "Add User"
+        }
+      },
+      "project": {
+        "addProjectBtn": "New Project",
+        "formContent": {
+          "projectNamePlaceholder": "Project name",
+          "projectDescriptionPlaceholder": "Project description",
+          "saveProjectBtn": "Save Project"
+        }
+      }
+    },
+    "taskbarPage": {
+      "newTaskbarBtn": "New Taskbar",
+      "formContent": {
+        "titlePlaceholder": "Add Title",
+        "descriptionPlaceholder": "Type description",
+        "selectCategoryPlaceholder": "Select Category",
+        "selectMembersPlaceholder": "Select Members",
+        "addBtn": "Add"
+      },
+      "noTaskbarsText": "No taskbars added"
+    }
+  }
+}

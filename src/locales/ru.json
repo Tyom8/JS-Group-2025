@@ -1,0 +1,61 @@
+{
+  "translation": {
+    "header": {
+      "changePassword": "Менять пароль",
+      "logout": "Выйти"
+    },
+    "dashboardPage": {
+      "dashboardUsers": {
+        "addUserBtn": "Добавить нового пользователя",
+        "noUsersText": "Пользователи не добавлены",
+        "formContent": {
+          "title": "Добавить Пользователя",
+          "firstNamePlaceholder": "Введите своё имя",
+          "lastNamePlaceholder": "Введите свою фамилию",
+          "emailPlaceholder": "Введите свой эл. адрес",
+          "passwordPlaceholder": "Введите свой пароль",
+          "phoneNumberPlaceholder": "Введите свой номер",
+          "gender": {
+            "male": "М",
+            "female": "Ж"
+          },
+          "requiredFields": {
+            "firstNameRequired": "Имя обязательно",
+            "lastNameRequired": "Фамилия обязательна",
+            "emailRequired": "Эл. почта обязательна",
+            "passwordRequired": "Пароль обязателен",
+            "phoneNumberRequired": "Номер телефона обязателен",
+            "genderRequired": "Пол обязателен"
+          },
+          "patterns": {
+            "firstNamePattern": "Неправильный формат имени",
+            "lastNamePattern": "Неправильный формат фамилии",
+            "emailPattern": "Неправильный формат элю почты",
+            "passwordPattern": "Пароль должен содержать только 8 символов, по крайней мере одну заглавную букву + по крайней мере одну строчную букву + по крайней мере одну цифру + по крайней мере один специальный символ (8 допустимых символов)",
+            "phoneNumberPatter": "Неправильный формат номера телефона"
+          },
+          "button": "Добавить"
+        }
+      },
+      "project": {
+        "addProjectBtn": "Новый Проект",
+        "formContent": {
+          "projectNamePlaceholder": "Имя проекта",
+          "projectDescriptionPlaceholder": "Описание проекта",
+          "saveProjectBtn": "Сохранить"
+        }
+      }
+    },
+    "taskbarPage": {
+      "newTaskbarBtn": "Новый панель задач",
+      "formContent": {
+        "titlePlaceholder": "Добавтье заголовок",
+        "descriptionPlaceholder": "Добавтье описание",
+        "selectCategoryPlaceholder": "Выберите категорию",
+        "selectMembersPlaceholder": "Выберите участников",
+        "addBtn": "Добавить"
+      },
+      "noTaskbarsText": "Панельи задач не добавлены"
+    }
+  }
+}
