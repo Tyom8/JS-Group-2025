@@ -39,6 +39,7 @@
       },
       "project": {
         "addProjectBtn": "New Project",
+        "noProjectText": "No Project Added",
         "formContent": {
           "projectNamePlaceholder": "Project name",
           "projectDescriptionPlaceholder": "Project description",

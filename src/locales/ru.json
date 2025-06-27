@@ -6,7 +6,7 @@
     },
     "dashboardPage": {
       "dashboardUsers": {
-        "addUserBtn": "Добавить нового пользователя",
+        "addUserBtn": "Добавить пользователя",
         "noUsersText": "Пользователи не добавлены",
         "formContent": {
           "title": "Добавить Пользователя",
@@ -39,6 +39,7 @@
       },
       "project": {
         "addProjectBtn": "Новый Проект",
+        "noProjectText": "Нету проекта",
         "formContent": {
           "projectNamePlaceholder": "Имя проекта",
           "projectDescriptionPlaceholder": "Описание проекта",

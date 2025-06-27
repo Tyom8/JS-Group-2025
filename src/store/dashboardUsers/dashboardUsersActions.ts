@@ -11,10 +11,13 @@ export const addUser = (user: DashboardUsers): DashboardUsersActionTypes => ({
   payload: user,
 });
 
-export const deleteUser = (id: number): DashboardUsersActionTypes => ({
-  type: DELETE_USER,
-  payload: id,
-});
+export const deleteUser = (id: number): DashboardUsersActionTypes => {
+  localStorage.removeItem("dashboardUsers");
+  return {
+    type: DELETE_USER,
+    payload: id,
+  };
+};
 
 export const getUsers = (
   users: DashboardUsers[]

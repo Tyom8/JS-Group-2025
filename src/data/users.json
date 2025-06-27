@@ -1,1 +1,32 @@
-[]
+[
+  {
+    "id": 1751017843537,
+    "firstName": "Vars",
+    "lastName": "Pijoyan",
+    "email": "vars@gmail.com",
+    "password": "vaRS22&*",
+    "phoneNumber": "+374 98 272-101",
+    "gender": "female",
+    "userImg": {}
+  },
+  {
+    "id": 1751030172433,
+    "firstName": "Poxos",
+    "lastName": "poxos",
+    "email": "poxos@mail.ru",
+    "password": "aaWW21*^",
+    "phoneNumber": "+374 94 146-000",
+    "gender": "male",
+    "userImg": {}
+  },
+  {
+    "id": 1751030809158,
+    "firstName": "Demo",
+    "lastName": "Demo",
+    "email": "demo@gmail.com",
+    "password": "hhHH66%^",
+    "phoneNumber": "+374 78 474-478",
+    "gender": "female",
+    "userImg": {}
+  }
+]

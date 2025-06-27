@@ -22,7 +22,10 @@ export const updateTaskbar = (taskbar: Taskbar): TaskbarActionTypes => ({
   payload: taskbar,
 });
 
-export const deleteTaskbar = (id: number): TaskbarActionTypes => ({
-  type: DELETE_TASKBAR,
-  payload: id,
-});
+export const deleteTaskbar = (id: number): TaskbarActionTypes => {
+  localStorage.removeItem("taskbars");
+  return {
+    type: DELETE_TASKBAR,
+    payload: id,
+  };
+};

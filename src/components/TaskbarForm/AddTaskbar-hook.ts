@@ -67,6 +67,6 @@ export const useAddTaskbar = () => {
     setEditById,
     editInputValue,
     setEditInputValue,
-    handleEditTaskbar
+    handleEditTaskbar,
   };
 };
